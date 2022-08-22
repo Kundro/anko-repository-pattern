@@ -4,11 +4,11 @@ using System.Data.SqlClient;
 
 namespace Customer.Datalayer.Repositories
 {
-    public class CustomerRepository : IRepository<Customers>
+    public class CustomerRepository : BaseRepository, IRepository<Customers>
     {
         public void Create(Customers entity)
         {
-            using var connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=CustomerLib_Kundro;Trusted_Connection=True;");
+            using var connection = GetConnection();
             DeleteAll();
             connection.Open();
             var command = new SqlCommand(
