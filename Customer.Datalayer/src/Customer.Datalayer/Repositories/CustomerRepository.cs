@@ -1,6 +1,7 @@
 ﻿using Customer.Datalayer.Interfaces;
 using Customer.Datalayer.BusinessEntities;
 using System.Data.SqlClient;
+using System;
 
 namespace Customer.Datalayer.Repositories
 {
@@ -52,14 +53,14 @@ namespace Customer.Datalayer.Repositories
         {
             using var connection = GetConnection();
             connection.Open();
-            var command = new SqlCommand("SELECT * FROM [Customer] WHERE CustomerID = @CustomerID", connection);
+            var command = new SqlCommand("SELECT * FROM Customer WHERE CustomerID = @CustomerID", connection);
             var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
             {
                 Value = entityID
             };
             command.Parameters.Add(customerIDParam);
             using var reader = command.ExecuteReader();
-            if (reader.HasRows)
+            if (reader.Read())
             {
                 return new Customers
                 {
@@ -67,7 +68,8 @@ namespace Customer.Datalayer.Repositories
                     LastName = reader["LastName"].ToString(),
                     PhoneNumber = reader["PhoneNumber"].ToString(),
                     Email = reader["Email"].ToString(),
-                    Notes = reader["Notes"].ToString()
+                    Notes = reader["Notes"].ToString(),
+                    TotalPurchasesAmount = Convert.ToDecimal(reader["TotalPurchasesAmount"])
                 };
             }
             reader.Close();
@@ -78,7 +80,7 @@ namespace Customer.Datalayer.Repositories
         {
             using var connection = GetConnection();
             connection.Open();
-            var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
+            var command = new SqlCommand("UPDATE Customer SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
             var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
             {
                 Value = entity.CustomerID
@@ -107,11 +109,11 @@ namespace Customer.Datalayer.Repositories
 
         public void DeleteAll()
         {
-            using var connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=CustomerLib_Kundro;Trusted_Connection=True;");
+            using var connection = GetConnection();
             connection.Open();
 
             var command = new SqlCommand(
-                "DELETE FROM [Customer]",
+                "DELETE FROM Customer",
                 connection);
             command.ExecuteNonQuery();
         }

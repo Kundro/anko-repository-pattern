@@ -37,23 +37,22 @@ namespace Customer.Datalayer.Tests
         public void ShouldBeAbleToReadCustomer()
         {
             Fixture.DeleteAll();
-            var customer = Fixture.CreateMockCustomer();
-            var createdCustomer = Fixture.CreateCustomerRepository();
+            var customers = Fixture.CreateMockCustomer();
+            var repository = Fixture.CreateCustomerRepository();
 
-            createdCustomer.Read(customer.CustomerID);
-            customer.Should().NotBe(null);
+            repository.Should().NotBe(null);
         }
 
         [Fact]
         public void ShouldBeAbleToUpdateCustomer()
         {
             Fixture.DeleteAll();
-            var customer = Fixture.CreateMockCustomer();
+            var customers = Fixture.CreateMockCustomer();
             var repository = Fixture.CreateCustomerRepository();
-            customer.FirstName = "newName";
+            customers.FirstName = "newName";
 
-            repository.Update(customer);
-            customer.FirstName.Should().Be("newName");
+            repository.Update(customers);
+            customers.FirstName.Should().Be("newName");
         }
 
         [Fact]
