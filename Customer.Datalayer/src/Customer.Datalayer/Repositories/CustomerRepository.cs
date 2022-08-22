@@ -9,7 +9,6 @@ namespace Customer.Datalayer.Repositories
         public void Create(Customers entity)
         {
             using var connection = GetConnection();
-            DeleteAll();
             connection.Open();
             var command = new SqlCommand(
                 "INSERT INTO Customer(FirstName, LastName, PhoneNumber, Email, Notes, TotalPurchasesAmount)" +
@@ -49,20 +48,63 @@ namespace Customer.Datalayer.Repositories
             command.ExecuteNonQuery();
         }
 
-        public void Delete(string entityCode)
+        public Customers Read(int entityID)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Customers Read(string entityCode)
-        {
-            throw new System.NotImplementedException();
+            using var connection = GetConnection();
+            connection.Open();
+            var command = new SqlCommand("SELECT * FROM [Customer] WHERE CustomerID = @CustomerID", connection);
+            var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
+            {
+                Value = entityID
+            };
+            command.Parameters.Add(customerIDParam);
+            using var reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                return new Customers
+                {
+                    FirstName = reader["FirstName"].ToString(),
+                    LastName = reader["LastName"].ToString(),
+                    PhoneNumber = reader["PhoneNumber"].ToString(),
+                    Email = reader["Email"].ToString(),
+                    Notes = reader["Notes"].ToString()
+                };
+            }
+            reader.Close();
+            return null;
         }
 
         public void Update(Customers entity)
         {
-            throw new System.NotImplementedException();
+            using var connection = GetConnection();
+            connection.Open();
+            var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
+            var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
+            {
+                Value = entity.CustomerID
+            };
+            var customerFirstNameParam = new SqlParameter("@FirstName", System.Data.SqlDbType.NVarChar, 50)
+            {
+                Value = entity.FirstName
+            };
+            command.Parameters.Add(customerIDParam);
+            command.Parameters.Add(customerFirstNameParam);
+            command.ExecuteNonQuery();
         }
+
+        public void Delete(int entityID)
+         {
+            using var connection = GetConnection();
+            connection.Open();
+            var command = new SqlCommand("DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
+            var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
+            {
+                Value = entityID
+            };
+            command.Parameters.Add(customerIDParam);
+            command.ExecuteNonQuery();
+        }
+
         public void DeleteAll()
         {
             using var connection = new SqlConnection("Server=.\\SQLEXPRESS;Database=CustomerLib_Kundro;Trusted_Connection=True;");

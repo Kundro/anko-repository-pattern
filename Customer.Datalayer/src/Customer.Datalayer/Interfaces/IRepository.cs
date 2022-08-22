@@ -3,8 +3,8 @@
     public interface IRepository<TEntity>
     {
         void Create(TEntity entity);
-        TEntity Read(string entityCode);
+        TEntity Read(int entityID);
         void Update(TEntity entity);
-        void Delete(string entityCode);
+        void Delete(int entityID);
     }
 }
