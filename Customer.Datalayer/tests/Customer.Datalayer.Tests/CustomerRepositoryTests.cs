@@ -1,6 +1,5 @@
 using Customer.Datalayer.BusinessEntities;
 using Customer.Datalayer.Repositories;
-using System.Collections.Generic;
 using Xunit;
 
 namespace Customer.Datalayer.Tests
@@ -19,13 +18,12 @@ namespace Customer.Datalayer.Tests
             var repository = new CustomerRepository();
             var customers = new Customers
             {
-                CustomerID = 1,
                 FirstName = "name",
                 LastName = "surname",
                 PhoneNumber = "+11234567891123",
                 Email = "mail@mail.ru",
                 TotalPurchasesAmount = 1,
-                Notes = new List<string>() { "note1" }
+                Notes = "note1"
             };
             repository.Create(customers); 
         }

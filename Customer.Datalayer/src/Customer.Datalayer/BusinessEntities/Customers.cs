@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Customer.Datalayer.BusinessEntities
+﻿namespace Customer.Datalayer.BusinessEntities
 {
     public class Customers
     {
