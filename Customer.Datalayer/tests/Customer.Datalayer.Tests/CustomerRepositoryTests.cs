@@ -18,9 +18,8 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToCreateCustomer()
         {
-            Fixture.DeleteAll();
             var repository = new CustomerRepository();
-            var customers = new Customers
+            var customers = new Customers()
             {
                 FirstName = "name",
                 LastName = "surname",
@@ -50,7 +49,7 @@ namespace Customer.Datalayer.Tests
 
             repository.Update(customers);
         }
-
+     
         [Fact]
         public void ShouldBeAbleToDeleteCustomer()
         {

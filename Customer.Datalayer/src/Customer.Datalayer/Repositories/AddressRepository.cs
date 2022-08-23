@@ -3,7 +3,6 @@ using Customer.Datalayer.Interfaces;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Customer.Datalayer.Repositories
 {
@@ -14,7 +13,7 @@ namespace Customer.Datalayer.Repositories
             using var connection = GetConnection();
             connection.Open();
             var command = new SqlCommand(
-                "INSERT INTO Addresses(CustomerID, AddressLine, AddressLine2, AddressType, City, PostalCode, StateName, Country) " +
+                "INSERT INTO Addresses(CustomerID, AddressLine, AddressLine2, AddressType, City, PostalCode, StateName, Country)" +
                 "VALUES (@CustomerID, @AddressLine, @AddressLine2, @AddressType, @City, @PostalCode, @StateName, @Country)",
                 connection);
             var addressCustomerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
@@ -91,17 +90,47 @@ namespace Customer.Datalayer.Repositories
         {
             using var connection = GetConnection();
             connection.Open();
-            var command = new SqlCommand("UPDATE Addresses SET AddressLine = @AddressLine WHERE AddressID = @AddressID", connection);
-            var addressIDParam = new SqlParameter("@AddressID", SqlDbType.Int)
+            var command = new SqlCommand("UPDATE Addresses SET CustomerID = @CustomerID, AddressLine = @AddressLine, AddressLine2 = @AddressLine2, AddressType = @AddressType, City = @City, PostalCode = @PostalCode, StateName = @StateName, Country = @Country WHERE AddressID = @AddressID", connection);
+            var addressCustomerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
             {
-                Value = entity.AddressID
+                Value = entity.CustomerID
             };
-            var addressAddressLineParam = new SqlParameter("@AddressLine", SqlDbType.NVarChar, 50)
+            var addressAddressLineParam = new SqlParameter("@AddressLine", SqlDbType.NVarChar, 100)
             {
                 Value = entity.AddressLine
             };
-            command.Parameters.Add(addressIDParam);
+            var addressAddressLine2Param = new SqlParameter("@AddressLine2", SqlDbType.NVarChar, 100)
+            {
+                Value = entity.AddressLine2
+            };
+            var addressAddressTypeParam = new SqlParameter("@AddressType", SqlDbType.NVarChar, 10)
+            {
+                Value = entity.AddressType
+            };
+            var addressCityParam = new SqlParameter("@City", SqlDbType.NVarChar, 50)
+            {
+                Value = entity.City
+            };
+            var addressPostalCodeParam = new SqlParameter("@PostalCode", SqlDbType.NVarChar, 6)
+            {
+                Value = entity.PostalCode
+            };
+            var addressStateNameParam = new SqlParameter("@StateName", SqlDbType.NVarChar, 20)
+            {
+                Value = entity.StateName
+            };
+            var addressCountryNameParam = new SqlParameter("@Country", SqlDbType.NVarChar)
+            {
+                Value = entity.Country
+            };
+            command.Parameters.Add(addressCustomerIDParam);
             command.Parameters.Add(addressAddressLineParam);
+            command.Parameters.Add(addressAddressLine2Param);
+            command.Parameters.Add(addressAddressTypeParam);
+            command.Parameters.Add(addressCityParam);
+            command.Parameters.Add(addressPostalCodeParam);
+            command.Parameters.Add(addressStateNameParam);
+            command.Parameters.Add(addressCountryNameParam);
             command.ExecuteNonQuery();
         }
 
@@ -130,7 +159,6 @@ namespace Customer.Datalayer.Repositories
                 return Convert.ToInt32(reader["CustomerID"]);
             }
             return 0;
-            reader.Close();
         }
         public int GetID()
         {
@@ -144,14 +172,14 @@ namespace Customer.Datalayer.Repositories
                 return Convert.ToInt32(reader["AddressID"]);
             }
             return 0;
-            reader.Close();
         }
+
         public void DeleteAll()
         {
             using var connection = GetConnection();
             connection.Open();
 
-            var command = new SqlCommand("DELETE FROM Addresses", connection);
+            var command = new SqlCommand("DELETE FROM Customer", connection);
             command.ExecuteNonQuery();
         }
     }

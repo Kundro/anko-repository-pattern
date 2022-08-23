@@ -13,7 +13,7 @@ namespace Customer.Datalayer.Repositories
             using var connection = GetConnection();
             connection.Open();
             var command = new SqlCommand(
-                "INSERT INTO Customer(FirstName, LastName, PhoneNumber, Email, Notes, TotalPurchasesAmount)" +
+                "INSERT INTO [Customer](FirstName, LastName, PhoneNumber, Email, Notes, TotalPurchasesAmount)" +
                 "VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @Notes, @TotalPurchasesAmount)",
                 connection);
 
@@ -54,7 +54,7 @@ namespace Customer.Datalayer.Repositories
         {
             using var connection = GetConnection();
             connection.Open();
-            var command = new SqlCommand("SELECT * FROM Customer WHERE CustomerID = @CustomerID", connection);
+            var command = new SqlCommand("SELECT * FROM [Customer] WHERE CustomerID = @CustomerID", connection);
             var customerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
             {
                 Value = entityID
@@ -80,7 +80,7 @@ namespace Customer.Datalayer.Repositories
         {
             using var connection = GetConnection();
             connection.Open();
-            var command = new SqlCommand("UPDATE Customer SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
+            var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
             var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
             {
                 Value = entity.CustomerID
@@ -93,9 +93,9 @@ namespace Customer.Datalayer.Repositories
             command.Parameters.Add(customerFirstNameParam);
             command.ExecuteNonQuery();
         }
-
         public void Delete(int entityID)
          {
+        /*
             using var connection = GetConnection();
             connection.Open();
             var command = new SqlCommand("DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
@@ -105,8 +105,8 @@ namespace Customer.Datalayer.Repositories
             };
             command.Parameters.Add(customerIDParam);
             command.ExecuteNonQuery();
+        */
         }
-
         public int GetID()
         {
             using var connection = GetConnection();
