@@ -79,8 +79,8 @@ namespace Customer.Datalayer.Tests
                 TotalPurchasesAmount = 1,
                 Notes = "note1"
             };
-            var countryRepository = new CustomerRepository();
-            countryRepository.Create(customers);
+            var customerRepository = new CustomerRepository();
+            customerRepository.Create(customers);
             return customers;
         }
         public CustomerRepository CreateCustomerRepository()

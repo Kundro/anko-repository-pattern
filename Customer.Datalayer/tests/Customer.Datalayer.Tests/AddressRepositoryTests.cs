@@ -16,7 +16,56 @@ namespace Customer.Datalayer.Tests
             repository.Should().NotBeNull();
         }
 
-        public class AddressRepositoryFixture
+        [Fact]
+        public void ShouldBeAbleToCreateAddress()
+        {
+            Fixture.DeleteAll();
+            var repository = Fixture.CreateAddressRepository();
+            var address = new Addresses()
+            {
+                CustomerID = repository.GetCustomerID(),
+                AddressLine = "line1",
+                AddressLine2 = "line2",
+                AddressType = "Shipping",
+                City = "Chicago",
+                PostalCode = "60666",
+                StateName = "Illinois",
+                Country = "USA"
+            };
+            address.Should().NotBeNull();
+            repository.Create(address);
+        }
+        
+        [Fact]
+        public void ShouldBeAbleToReadAddress()
+        {
+            Fixture.DeleteAll();
+            var repository = Fixture.CreateAddressRepository();
+            Assert.NotNull(repository.Read(repository.GetID()));
+        }
+
+        [Fact]
+        public void ShouldBeAbleToUpdateAddress()
+        {
+            Fixture.DeleteAll();
+            var addresses = Fixture.CreateMockAddress();
+            var repository = Fixture.CreateAddressRepository();
+            addresses.AddressLine = "newLine";
+
+            repository.Update(addresses);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToDeleteAddress()
+        {
+            Fixture.DeleteAll();
+            var repository = Fixture.CreateAddressRepository();
+
+            repository.Delete(1);
+        }
+    }
+
+    public class AddressRepositoryFixture
         {
             public void DeleteAll()
             {
@@ -25,20 +74,22 @@ namespace Customer.Datalayer.Tests
             }
             public Addresses CreateMockAddress()
             {
-                var customers = new Addresses
+                var customers = new CustomerRepository();
+                int ID = customers.GetID();
+                var addresses = new Addresses
                 {
-                    CustomerID = 1,
+                    CustomerID = ID,
                     AddressLine = "line1",
                     AddressLine2 = "line2",
-                    AddressType = AddressType.Billing,
+                    AddressType = "Shipping",
                     City = "Chicago",
                     PostalCode = "60666",
-                    State = "Illinois",
+                    StateName = "Illinois",
                     Country = "USA"
                 };
                 var addressRepository = new AddressRepository();
-                addressRepository.Create(customers);
-                return customers;
+                addressRepository.Create(addresses);
+                return addresses;
             }
             public AddressRepository CreateAddressRepository()
             {
