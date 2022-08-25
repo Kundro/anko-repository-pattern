@@ -13,10 +13,14 @@ namespace Customer.Datalayer.WebForm
     public partial class CustomersList : System.Web.UI.Page
     {
         private IRepository<Customers> _customerRepository;
-        public object Customers { get; set; }
+        public List<Customers> Customers { get; set; }
         public CustomersList()
         {
             _customerRepository = new CustomerRepository();
+        }
+        public CustomersList(IRepository<Customers> customerRepository)
+        {
+            _customerRepository = customerRepository;
         }
 
 

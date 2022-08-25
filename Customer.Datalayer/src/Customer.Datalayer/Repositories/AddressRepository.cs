@@ -1,6 +1,7 @@
 ﻿using Customer.Datalayer.BusinessEntities;
 using Customer.Datalayer.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -202,6 +203,11 @@ namespace Customer.Datalayer.Repositories
                     connection);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<Addresses> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

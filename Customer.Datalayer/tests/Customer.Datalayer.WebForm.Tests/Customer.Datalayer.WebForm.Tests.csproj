@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\src\Customer.Datalayer.WebForm\Customer.Datalayer.WebForm.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>
