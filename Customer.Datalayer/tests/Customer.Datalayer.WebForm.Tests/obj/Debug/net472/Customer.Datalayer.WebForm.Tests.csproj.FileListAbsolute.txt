@@ -31,3 +31,7 @@ D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebF
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.csproj.CopyComplete
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.dll
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\bin\Debug\net472\Customer.Datalayer.WebForm.Tests.dll.config
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\bin\Debug\net472\Castle.Core.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\bin\Debug\net472\Moq.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.dll.config
