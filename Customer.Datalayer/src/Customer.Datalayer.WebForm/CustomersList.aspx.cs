@@ -1,0 +1,33 @@
+﻿using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
+using Customer.Datalayer.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Customer.Datalayer.WebForm
+{
+    public partial class CustomersList : System.Web.UI.Page
+    {
+        private IRepository<Customers> _customerRepository;
+        public object Customers { get; set; }
+        public CustomersList()
+        {
+            _customerRepository = new CustomerRepository();
+        }
+
+
+        public void LoadCustomersFromDatabase()
+        {
+            Customers = _customerRepository.GetAll();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

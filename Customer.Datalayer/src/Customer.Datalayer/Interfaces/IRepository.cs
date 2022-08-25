@@ -1,4 +1,6 @@
-﻿namespace Customer.Datalayer.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Customer.Datalayer.Interfaces
 {
     public interface IRepository<TEntity>
     {
@@ -6,5 +8,6 @@
         TEntity Read(int entityID);
         void Update(TEntity entity);
         void Delete(int entityID);
+        List<TEntity> GetAll();
     }
 }

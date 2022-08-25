@@ -1,0 +1,7 @@
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\bin\Debug\net472\CoverletSourceRootsMapping
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.csproj.AssemblyReference.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.csproj.SuggestedBindingRedirects.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.AssemblyInfoInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.AssemblyInfo.cs
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.WebForm.Tests\obj\Debug\net472\Customer.Datalayer.WebForm.Tests.csproj.CoreCompileInputs.cache
