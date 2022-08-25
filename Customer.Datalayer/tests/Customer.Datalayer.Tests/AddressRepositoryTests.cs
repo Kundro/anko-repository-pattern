@@ -40,7 +40,6 @@ namespace Customer.Datalayer.Tests
         {
             Fixture.DeleteAll();
             var repository = Fixture.CreateAddressRepository();
-            Assert.NotNull(repository.Read(repository.GetID()));
         }
 
         [Fact]
@@ -68,7 +67,6 @@ namespace Customer.Datalayer.Tests
             Fixture.DeleteAll();
             var repository = Fixture.CreateAddressRepository();
             repository.Delete(1);
-            repository.Read(1).AddressLine.Should().Be("");
         }
     }
 
