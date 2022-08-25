@@ -1,8 +1,8 @@
-﻿using Customer.Datalayer.Interfaces;
-using Customer.Datalayer.BusinessEntities;
-using System.Data.SqlClient;
+﻿using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Customer.Datalayer.Repositories
 {
@@ -73,7 +73,7 @@ namespace Customer.Datalayer.Repositories
                     TotalPurchasesAmount = Convert.ToDecimal(reader["TotalPurchasesAmount"])
                 };
             }
-            return new Customers();
+            return null;
         }
 
         public void Update(Customers entity)
@@ -94,8 +94,7 @@ namespace Customer.Datalayer.Repositories
             command.ExecuteNonQuery();
         }
         public void Delete(int entityID)
-         {
-        /*
+        {
             using var connection = GetConnection();
             connection.Open();
             var command = new SqlCommand("DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
@@ -105,7 +104,6 @@ namespace Customer.Datalayer.Repositories
             };
             command.Parameters.Add(customerIDParam);
             command.ExecuteNonQuery();
-        */
         }
         public int GetID()
         {

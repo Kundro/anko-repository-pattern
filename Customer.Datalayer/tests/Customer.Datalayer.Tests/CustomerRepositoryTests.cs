@@ -1,5 +1,6 @@
 using Customer.Datalayer.BusinessEntities;
 using Customer.Datalayer.Repositories;
+using FluentAssertions;
 using Xunit;
 
 namespace Customer.Datalayer.Tests
@@ -11,8 +12,8 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToCreateCustomerRepository()
         {
-            var repository = new CustomerRepository();
-            Assert.NotNull(repository);
+            CustomerRepository repository = new CustomerRepository();
+            repository.Should().NotBeNull();
         }
 
         [Fact]
@@ -34,7 +35,6 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToReadCustomer()
         {
-            Fixture.DeleteAll();
             var repository = Fixture.CreateCustomerRepository();
             Assert.NotNull(repository.Read(repository.GetID()));
         }
@@ -42,9 +42,8 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToUpdateCustomer()
         {
-            Fixture.DeleteAll();
-            var customers = Fixture.CreateMockCustomer();
             var repository = Fixture.CreateCustomerRepository();
+            var customers = Fixture.CreateMockCustomer();
             customers.FirstName = "newName";
 
             repository.Update(customers);
@@ -53,9 +52,7 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToDeleteCustomer()
         {
-            Fixture.DeleteAll();
             var repository = Fixture.CreateCustomerRepository();
-
             repository.Delete(1);
         }
     }

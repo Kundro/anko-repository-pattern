@@ -91,6 +91,10 @@ namespace Customer.Datalayer.Repositories
             using var connection = GetConnection();
             connection.Open();
             var command = new SqlCommand("UPDATE Addresses SET CustomerID = @CustomerID, AddressLine = @AddressLine, AddressLine2 = @AddressLine2, AddressType = @AddressType, City = @City, PostalCode = @PostalCode, StateName = @StateName, Country = @Country WHERE AddressID = @AddressID", connection);
+            var addressAddressIDParam = new SqlParameter("@AddressID", SqlDbType.Int)
+            {
+                Value = entity.AddressID
+            };
             var addressCustomerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
             {
                 Value = entity.CustomerID
@@ -123,6 +127,7 @@ namespace Customer.Datalayer.Repositories
             {
                 Value = entity.Country
             };
+            command.Parameters.Add(addressAddressIDParam);
             command.Parameters.Add(addressCustomerIDParam);
             command.Parameters.Add(addressAddressLineParam);
             command.Parameters.Add(addressAddressLine2Param);
@@ -179,7 +184,9 @@ namespace Customer.Datalayer.Repositories
             using var connection = GetConnection();
             connection.Open();
 
-            var command = new SqlCommand("DELETE FROM Customer", connection);
+            var command = new SqlCommand(
+                "DELETE FROM Addresses", 
+                connection);
             command.ExecuteNonQuery();
         }
     }
