@@ -48,7 +48,7 @@ namespace Customer.Datalayer.Tests
 
             repository.Update(customers);
         }
-     
+
         [Fact]
         public void ShouldBeAbleToDeleteCustomer()
         {

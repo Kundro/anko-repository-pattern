@@ -1,5 +1,4 @@
 ﻿using Customer.Datalayer.BusinessEntities;
-using Customer.Datalayer.Interfaces;
 using Customer.Datalayer.Repositories;
 using FluentAssertions;
 using Xunit;
@@ -35,7 +34,7 @@ namespace Customer.Datalayer.Tests
             };
             repository.Create(address);
         }
-        
+
         [Fact]
         public void ShouldBeAbleToReadAddress()
         {
@@ -74,7 +73,7 @@ namespace Customer.Datalayer.Tests
     }
 
     public class AddressRepositoryFixture
-    { 
+    {
         public void DeleteAll()
         {
             var repository = new AddressRepository();
