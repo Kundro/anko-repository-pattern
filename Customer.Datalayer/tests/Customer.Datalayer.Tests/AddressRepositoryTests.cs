@@ -20,7 +20,6 @@ namespace Customer.Datalayer.Tests
         public void ShouldBeAbleToCreateAddress()
         {
             var repository = new AddressRepository();
-            Fixture.DeleteAll();
             var address = new Addresses()
             {
                 CustomerID = repository.GetCustomerID(),
@@ -38,7 +37,6 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToReadAddress()
         {
-            Fixture.DeleteAll();
             var repository = Fixture.CreateAddressRepository();
         }
 
@@ -46,7 +44,6 @@ namespace Customer.Datalayer.Tests
         public void ShouldBeAbleToUpdateAddress()
         {
             var repository = Fixture.CreateAddressRepository();
-            Fixture.DeleteAll();
             var addresses = Fixture.CreateMockAddress();
             addresses.AddressID = repository.GetID();
             addresses.CustomerID = repository.GetCustomerID();
@@ -64,7 +61,6 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToDeleteAddress()
         {
-            Fixture.DeleteAll();
             var repository = Fixture.CreateAddressRepository();
             repository.Delete(1);
         }
@@ -79,6 +75,7 @@ namespace Customer.Datalayer.Tests
         }
         public Addresses CreateMockAddress()
         {
+
             var addressRepository = new AddressRepository();
             var addresses = new Addresses()
             {

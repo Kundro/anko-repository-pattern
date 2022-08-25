@@ -19,27 +19,27 @@ namespace Customer.Datalayer.Repositories
                     "VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @Notes, @TotalPurchasesAmount)",
                     connection);
 
-                var customerFirstNameParam = new SqlParameter("@FirstName", System.Data.SqlDbType.NVarChar, 50)
+                var customerFirstNameParam = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50)
                 {
                     Value = entity.FirstName
                 };
-                var customerLastNameParam = new SqlParameter("@LastName", System.Data.SqlDbType.NVarChar, 50)
+                var customerLastNameParam = new SqlParameter("@LastName", SqlDbType.NVarChar, 50)
                 {
                     Value = entity.LastName
                 };
-                var customerPhoneNumberParam = new SqlParameter("@PhoneNumber", System.Data.SqlDbType.NVarChar, 15)
+                var customerPhoneNumberParam = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15)
                 {
                     Value = entity.PhoneNumber
                 };
-                var customerEmailParam = new SqlParameter("@Email", System.Data.SqlDbType.NVarChar, 100)
+                var customerEmailParam = new SqlParameter("@Email", SqlDbType.NVarChar, 100)
                 {
                     Value = entity.Email
                 };
-                var customerNotesParam = new SqlParameter("@Notes", System.Data.SqlDbType.NVarChar, int.MaxValue)
+                var customerNotesParam = new SqlParameter("@Notes", SqlDbType.NVarChar, int.MaxValue)
                 {
                     Value = entity.Notes
                 };
-                var customerTotalPurchasesAmountParam = new SqlParameter("@TotalPurchasesAmount", System.Data.SqlDbType.Decimal)
+                var customerTotalPurchasesAmountParam = new SqlParameter("@TotalPurchasesAmount", SqlDbType.Decimal)
                 {
                     Value = entity.TotalPurchasesAmount
                 };
@@ -70,6 +70,7 @@ namespace Customer.Datalayer.Repositories
                     {
                         return new Customers
                         {
+                            CustomerID = Convert.ToInt32(reader["CustomerID"]),
                             FirstName = reader["FirstName"].ToString(),
                             LastName = reader["LastName"].ToString(),
                             PhoneNumber = reader["PhoneNumber"].ToString(),
@@ -89,11 +90,11 @@ namespace Customer.Datalayer.Repositories
             {
                 connection.Open();
                 var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
-                var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
+                var customerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
                 {
                     Value = entity.CustomerID
                 };
-                var customerFirstNameParam = new SqlParameter("@FirstName", System.Data.SqlDbType.NVarChar, 50)
+                var customerFirstNameParam = new SqlParameter("@FirstName", SqlDbType.NVarChar, 50)
                 {
                     Value = entity.FirstName
                 };
@@ -107,8 +108,8 @@ namespace Customer.Datalayer.Repositories
             using (var connection = GetConnection())
             {
                 connection.Open();
-                var command = new SqlCommand("DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
-                var customerIDParam = new SqlParameter("@CustomerID", System.Data.SqlDbType.Int)
+                var command = new SqlCommand("DELETE FROM Addresses WHERE CustomerID = @CustomerID DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
+                var customerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
                 {
                     Value = entityID
                 };
@@ -137,7 +138,7 @@ namespace Customer.Datalayer.Repositories
                 connection.Open();
 
                 var command = new SqlCommand(
-                    "DELETE FROM Customer",
+                    "DELETE FROM Customer WHERE CustomerID>498",
                     connection);
                 command.ExecuteNonQuery();
             }
