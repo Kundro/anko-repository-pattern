@@ -2,6 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Your application description page.</h3>
-    <p>Use this area to provide additional information.</p>
+    <h3>Add Customer ASP.NET WebForms.</h3>
+    <p>Use ASP.NET WebForms in project for practice.</p>
 </asp:Content>
