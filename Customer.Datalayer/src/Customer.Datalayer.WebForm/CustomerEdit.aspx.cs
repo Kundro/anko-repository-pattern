@@ -24,7 +24,17 @@ namespace Customer.Datalayer.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            var customerIDReq = Convert.ToInt32(Request["customerID"]);
+            if(customerIDReq != 0)
+            {
+                var customer = _customerRepository.Read(customerIDReq);
+                firstName.Text = customer.FirstName;
+                lastName.Text = customer.LastName;
+                phoneNumber.Text = customer.PhoneNumber;
+                email.Text = customer.Email;
+                notes.Text = customer.Notes;
+                totalPurchasesAmount.Text = customer.TotalPurchasesAmount.ToString();
+            }
         }
 
         public void OnClickSave(object sender, EventArgs e)
