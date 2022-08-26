@@ -27,13 +27,16 @@ namespace Customer.Datalayer.WebForm
             var customerIDReq = Convert.ToInt32(Request["customerID"]);
             if(customerIDReq != 0)
             {
-                var customer = _customerRepository.Read(customerIDReq);
-                firstName.Text = customer.FirstName;
-                lastName.Text = customer.LastName;
-                phoneNumber.Text = customer.PhoneNumber;
-                email.Text = customer.Email;
-                notes.Text = customer.Notes;
-                totalPurchasesAmount.Text = customer.TotalPurchasesAmount.ToString();
+                if (!IsPostBack)
+                {
+                    var customer = _customerRepository.Read(customerIDReq);
+                    firstName.Text = customer.FirstName;
+                    lastName.Text = customer.LastName;
+                    phoneNumber.Text = customer.PhoneNumber;
+                    email.Text = customer.Email;
+                    notes.Text = customer.Notes;
+                    totalPurchasesAmount.Text = customer.TotalPurchasesAmount.ToString();
+                }
             }
         }
 
@@ -41,6 +44,7 @@ namespace Customer.Datalayer.WebForm
         {
             var customer = new Customers()
             {
+                CustomerID = Convert.ToInt32(Request.QueryString["customerID"]),
                 FirstName = firstName?.Text,
                 LastName = lastName?.Text,
                 PhoneNumber = phoneNumber?.Text,
@@ -48,7 +52,14 @@ namespace Customer.Datalayer.WebForm
                 Notes = notes?.Text,
                 TotalPurchasesAmount = Convert.ToDecimal(totalPurchasesAmount?.Text)
             };
-            _customerRepository.Create(customer);
+            if (Convert.ToInt32(Request.QueryString["customerID"]) == 0)
+            {
+                _customerRepository.Create(customer);
+            } else
+            {
+                _customerRepository.Update(customer);
+            }
+            Response.Redirect("CustomersList.aspx");
         }
     }
 }

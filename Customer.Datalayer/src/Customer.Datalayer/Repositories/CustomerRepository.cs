@@ -89,7 +89,7 @@ namespace Customer.Datalayer.Repositories
             using (var connection = GetConnection())
             {
                 connection.Open();
-                var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName WHERE CustomerID = @CustomerID", connection);
+                var command = new SqlCommand("UPDATE [Customer] SET FirstName = @FirstName, LastName = @LastName, PhoneNumber = @PhoneNumber, Email = @Email, Notes = @Notes, TotalPurchasesAmount = @TotalPurchasesAmount WHERE CustomerID = @CustomerID", connection);
                 var customerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
                 {
                     Value = entity.CustomerID
@@ -98,8 +98,33 @@ namespace Customer.Datalayer.Repositories
                 {
                     Value = entity.FirstName
                 };
+                var customerLastNameParam = new SqlParameter("@LastName", SqlDbType.NVarChar, 50)
+                {
+                    Value = entity.LastName
+                };
+                var customerPhoneNumberParam = new SqlParameter("@PhoneNumber", SqlDbType.NVarChar, 15)
+                {
+                    Value = entity.PhoneNumber
+                };
+                var customerEmailParam = new SqlParameter("@Email", SqlDbType.NVarChar, 100)
+                {
+                    Value = entity.Email
+                };
+                var customerNotesParam = new SqlParameter("@Notes", SqlDbType.NVarChar, int.MaxValue)
+                {
+                    Value = entity.Notes
+                };
+                var customerTotalPurchasesAmountParam = new SqlParameter("@TotalPurchasesAmount", SqlDbType.Decimal)
+                {
+                    Value = entity.TotalPurchasesAmount
+                };
                 command.Parameters.Add(customerIDParam);
                 command.Parameters.Add(customerFirstNameParam);
+                command.Parameters.Add(customerLastNameParam);
+                command.Parameters.Add(customerPhoneNumberParam);
+                command.Parameters.Add(customerEmailParam);
+                command.Parameters.Add(customerNotesParam);
+                command.Parameters.Add(customerTotalPurchasesAmountParam);
                 command.ExecuteNonQuery();
             }
         }
@@ -158,6 +183,7 @@ namespace Customer.Datalayer.Repositories
                     {
                         customers.Add(new Customers
                         {
+                            CustomerID = Convert.ToInt32(reader["CustomerID"]),
                             FirstName = reader["FirstName"].ToString(),
                             LastName = reader["LastName"].ToString(),
                             PhoneNumber = reader["PhoneNumber"].ToString(),

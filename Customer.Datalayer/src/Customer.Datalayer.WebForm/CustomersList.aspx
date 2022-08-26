@@ -13,6 +13,7 @@
                 <th class="text-center">Notes</th>
                 <th class="text-center">Total Purchases Amount</th>
                 <th class="text-center"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +27,8 @@
                         <td><%=customer.Email%></td>
                         <td><%=customer.Notes%></td>
                         <td><%=customer.TotalPurchasesAmount%></td>
-                        <td><a class="btn btn-default" href="CustomerEdit?customerID=<%=customer.CustomerID %>">Edit</a></td>
+                        <td><a class="btn btn-default" href="CustomerEdit.aspx?customerID=<%=customer.CustomerID %>">Edit</a></td>
+                        <td><a class="btn btn-danger" >Delete</a></td>
                     </tr>
                 <%} %>
         </tbody>
