@@ -46,7 +46,7 @@ namespace Customer.Datalayer.WebForm
             {
                 CustomerID = Convert.ToInt32(Request.QueryString["customerID"]),
                 FirstName = firstName?.Text,
-                LastName = lastName?.Text,
+                LastName = lastName?.Text, 
                 PhoneNumber = phoneNumber?.Text,
                 Email = email?.Text,
                 Notes = notes?.Text,

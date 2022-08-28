@@ -207,7 +207,31 @@ namespace Customer.Datalayer.Repositories
 
         public List<Addresses> GetAll()
         {
-            throw new NotImplementedException();
+            List<Addresses> addresses = new List<Addresses>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM Addresses", connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        addresses.Add(new Addresses
+                        {
+                            AddressID = Convert.ToInt32(reader["AddressID"]),
+                            CustomerID = Convert.ToInt32(reader["CustomerID"]),
+                            AddressLine = reader["AddressLine"].ToString(),
+                            AddressLine2 = reader["AddressLine2"].ToString(),
+                            AddressType = reader["AddressType"].ToString(),
+                            City = reader["City"].ToString(),
+                            PostalCode = reader["PostalCode"].ToString(),
+                            StateName = reader["StateName"].ToString(),
+                            Country = reader["Country"].ToString()
+                        });
+                    }
+                }
+                return addresses;
+            }
         }
     }
 }

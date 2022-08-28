@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add new customer" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CustomerEdit.aspx.cs" Inherits="Customer.Datalayer.WebForm.CustomerEdit" %>
+﻿<%@ Page Title="New customer information" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CustomerEdit.aspx.cs" Inherits="Customer.Datalayer.WebForm.CustomerEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 

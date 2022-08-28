@@ -133,7 +133,7 @@ namespace Customer.Datalayer.Repositories
             using (var connection = GetConnection())
             {
                 connection.Open();
-                var command = new SqlCommand("DELETE FROM Addresses WHERE CustomerID = @CustomerID DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
+                var command = new SqlCommand("DELETE FROM [Customer] WHERE CustomerID = @CustomerID", connection);
                 var customerIDParam = new SqlParameter("@CustomerID", SqlDbType.Int)
                 {
                     Value = entityID

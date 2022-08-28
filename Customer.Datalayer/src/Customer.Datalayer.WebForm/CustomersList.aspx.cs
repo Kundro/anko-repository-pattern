@@ -32,6 +32,13 @@ namespace Customer.Datalayer.WebForm
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadCustomersFromDatabase();
+            
+        }
+
+        protected void OnClickDelete(object sender, EventArgs e)
+        {
+            var customerIDReq = Convert.ToInt32(Request.QueryString["customerID"]);
+            _customerRepository.Delete(customerIDReq);
         }
     }
 }
