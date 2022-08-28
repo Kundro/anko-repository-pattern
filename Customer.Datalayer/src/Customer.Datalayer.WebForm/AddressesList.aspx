@@ -34,7 +34,7 @@
                         <td><%=address.StateName %></td>
                         <td><%=address.Country %></td>
                         <td><a class="btn btn-default" href="AddressEdit.aspx?addressID=<%=address.AddressID %>">Edit</a></td>
-                        <td><asp:Button class="btn btn-danger" Text="Delete" runat="server"/></td>
+                        <td><a class="btn btn-danger" href="AddressDelete.aspx?addressID=<%=address.AddressID %>">Delete</a></td>
                     </tr>
             <%} %>
         </tbody>
