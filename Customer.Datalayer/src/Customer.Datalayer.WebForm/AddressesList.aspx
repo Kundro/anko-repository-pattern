@@ -33,14 +33,14 @@
                         <td><%=address.PostalCode %></td>
                         <td><%=address.StateName %></td>
                         <td><%=address.Country %></td>
-                        <td><a class="btn btn-default" href="#">Edit</a></td>
+                        <td><a class="btn btn-default" href="AddressEdit.aspx?addressID=<%=address.AddressID %>">Edit</a></td>
                         <td><asp:Button class="btn btn-danger" Text="Delete" runat="server"/></td>
                     </tr>
             <%} %>
         </tbody>
     </table>
      <div class="text-center">
-        <a runat="server" class="btn btn-success">Add new address</a>
+        <a runat="server" class="btn btn-success" href="AddressEdit.aspx">Add new address</a>
     </div>
 
 </asp:Content>

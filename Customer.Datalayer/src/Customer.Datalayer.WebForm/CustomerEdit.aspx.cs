@@ -12,7 +12,7 @@ namespace Customer.Datalayer.WebForm
 {
     public partial class CustomerEdit : System.Web.UI.Page
     {
-        private IRepository<Customers> _customerRepository;
+        public IRepository<Customers> _customerRepository;
         public CustomerEdit()
         {
             _customerRepository = new CustomerRepository();
@@ -24,11 +24,12 @@ namespace Customer.Datalayer.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var customerIDReq = Convert.ToInt32(Request["customerID"]);
-            if(customerIDReq != 0)
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
+                var customerIDReq = Convert.ToInt32(Request["customerID"]);
+                if (customerIDReq != 0)
                 {
+
                     var customer = _customerRepository.Read(customerIDReq);
                     firstName.Text = customer.FirstName;
                     lastName.Text = customer.LastName;
@@ -59,7 +60,7 @@ namespace Customer.Datalayer.WebForm
             {
                 _customerRepository.Update(customer);
             }
-            Response.Redirect("CustomersList.aspx");
+            HttpContext.Current.Response.Redirect("CustomersList.aspx");
         }
     }
 }

@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddressEdit.aspx" />
     <Content Include="AddressesList.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -113,6 +114,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CustomerDelete.aspx" />
     <Content Include="CustomerEdit.aspx" />
     <Content Include="CustomersList.aspx" />
     <Content Include="Default.aspx" />
@@ -163,6 +165,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressEdit.aspx.cs">
+      <DependentUpon>AddressEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddressEdit.aspx.designer.cs">
+      <DependentUpon>AddressEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddressesList.aspx.cs">
       <DependentUpon>AddressesList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +194,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDelete.aspx.cs">
+      <DependentUpon>CustomerDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDelete.aspx.designer.cs">
+      <DependentUpon>CustomerDelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerEdit.aspx.cs">
       <DependentUpon>CustomerEdit.aspx</DependentUpon>

@@ -28,7 +28,7 @@
                         <td><%=customer.Notes%></td>
                         <td><%=customer.TotalPurchasesAmount%></td>
                         <td><a class="btn btn-default" href="CustomerEdit.aspx?customerID=<%=customer.CustomerID %>">Edit</a></td>
-                        <td><asp:Button class="btn btn-danger" Text="Delete" runat="server" OnClick="OnClickDelete"/></td>
+                        <td><a class="btn btn-danger" href="CustomerDelete.aspx?customerID=<%=customer.CustomerID %>">Delete</a></td>
                     </tr>
                 <%} %>
         </tbody>

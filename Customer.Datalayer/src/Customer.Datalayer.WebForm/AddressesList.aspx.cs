@@ -12,7 +12,7 @@ namespace Customer.Datalayer.WebForm
 {
     public partial class AddressesList : System.Web.UI.Page
     {
-        private IRepository<Addresses> _addressRepository;
+        private readonly IRepository<Addresses> _addressRepository;
         public List<Addresses> Addresses { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
