@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddressDelete.aspx" />
+    <Content Include="AddressDeleteAll.aspx" />
     <Content Include="AddressEdit.aspx" />
     <Content Include="AddressesList.aspx" />
     <Content Include="Contact.aspx" />
@@ -116,6 +117,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CustomerDelete.aspx" />
+    <Content Include="CustomerDeleteAll.aspx" />
     <Content Include="CustomerEdit.aspx" />
     <Content Include="CustomersList.aspx" />
     <Content Include="Default.aspx" />
@@ -173,6 +175,13 @@
     <Compile Include="AddressDelete.aspx.designer.cs">
       <DependentUpon>AddressDelete.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddressDeleteAll.aspx.cs">
+      <DependentUpon>AddressDeleteAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddressDeleteAll.aspx.designer.cs">
+      <DependentUpon>AddressDeleteAll.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddressEdit.aspx.cs">
       <DependentUpon>AddressEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -209,6 +218,13 @@
     </Compile>
     <Compile Include="CustomerDelete.aspx.designer.cs">
       <DependentUpon>CustomerDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDeleteAll.aspx.cs">
+      <DependentUpon>CustomerDeleteAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDeleteAll.aspx.designer.cs">
+      <DependentUpon>CustomerDeleteAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerEdit.aspx.cs">
       <DependentUpon>CustomerEdit.aspx</DependentUpon>

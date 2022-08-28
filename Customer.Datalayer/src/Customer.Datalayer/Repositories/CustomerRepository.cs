@@ -163,7 +163,7 @@ namespace Customer.Datalayer.Repositories
                 connection.Open();
 
                 var command = new SqlCommand(
-                    "DELETE FROM Customer WHERE CustomerID>498",
+                    "DELETE FROM Customer",
                     connection);
                 command.ExecuteNonQuery();
             }

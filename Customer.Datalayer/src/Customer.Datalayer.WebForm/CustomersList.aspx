@@ -13,7 +13,7 @@
                 <th class="text-center">Notes</th>
                 <th class="text-center">Total Purchases Amount</th>
                 <th class="text-center"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></th>
-                <th class="text-center"><asp:Button class="btn btn-danger" Text="Delete All" runat="server"/></th>
+                <th class="text-center"><a class="btn btn-danger" href="CustomerDeleteAll.aspx">Delete All</a></th>
             </tr>
         </thead>
         <tbody>
