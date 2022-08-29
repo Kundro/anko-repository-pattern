@@ -11,11 +11,11 @@
         </div>
         <div class="form-group">
             <asp:Label Text="Address line 1" runat="server"></asp:Label>
-            <asp:TextBox ID="addressLine1" class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:TextBox ID="addressLine1" maxlength="100" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="Address line 2" runat="server"></asp:Label>
-            <asp:TextBox ID="addressLine2" class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:TextBox ID="addressLine2" maxlength="100" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="Address type" runat="server"></asp:Label>
@@ -23,21 +23,20 @@
         </div>
         <div class="form-group">
             <asp:Label Text="City" runat="server"></asp:Label>
-            <asp:TextBox ID="city"  class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:TextBox ID="city" maxlength="50" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="Postal Code" runat="server"></asp:Label>
-            <asp:TextBox ID="postalCode" class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:TextBox ID="postalCode" maxlength="6" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="State" runat="server"></asp:Label>
-            <asp:TextBox ID="state" class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:TextBox ID="state" maxlength="20" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="Country" runat="server"></asp:Label>
             <asp:TextBox ID="country" class="form-control center-block" runat="server"></asp:TextBox>
         </div>
-
         <div class="text-center">
             <asp:Button class="btn btn-primary" Text="Save" runat="server" OnClick="OnClickSave"/>
         </div>
