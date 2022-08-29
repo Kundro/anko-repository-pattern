@@ -196,5 +196,10 @@ namespace Customer.Datalayer.Repositories
                 return customers;
             }
         }
+
+        public List<int> GetAllIDs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

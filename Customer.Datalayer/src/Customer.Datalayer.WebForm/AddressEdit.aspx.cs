@@ -26,6 +26,11 @@ namespace Customer.Datalayer.WebForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<int> IDs = _addressRepository.GetAllIDs();
+            foreach(int ID in IDs)
+            {
+                dropDownCustomerID.Items.Add(ID.ToString());
+            }
             if (!IsPostBack)
             {
                 var addressIDReq = Convert.ToInt32(Request.QueryString["addressID"]);
@@ -33,7 +38,7 @@ namespace Customer.Datalayer.WebForm
                 {
                     var address = _addressRepository.Read(addressIDReq);
                     
-                    customerID.Text = Convert.ToString(address.CustomerID);
+                    dropDownCustomerID.Text = Convert.ToString(address.CustomerID);
                     addressLine1.Text = address.AddressLine;
                     addressLine2.Text = address.AddressLine2;
                     addressType.Text = address.AddressType;
@@ -51,7 +56,7 @@ namespace Customer.Datalayer.WebForm
             var address = new Addresses()
             {
                 AddressID = Convert.ToInt32(Request.QueryString["addressID"]),
-                CustomerID = Convert.ToInt32(customerID?.Text),
+                CustomerID = Convert.ToInt32(dropDownCustomerID.SelectedValue),
                 AddressLine = addressLine1?.Text,
                 AddressLine2 = addressLine2?.Text,
                 AddressType = addressType?.Text,

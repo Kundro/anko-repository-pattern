@@ -11,5 +11,6 @@ namespace Customer.Datalayer.Interfaces
         List<TEntity> GetAll();
         void DeleteAll();
         int GetID();
+        List<int> GetAllIDs();
     }
 }

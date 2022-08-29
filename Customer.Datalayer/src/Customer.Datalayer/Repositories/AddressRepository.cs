@@ -233,5 +233,23 @@ namespace Customer.Datalayer.Repositories
                 return addresses;
             }
         }
+
+        public List<int> GetAllIDs()
+        {
+            List<int> IDs = new List<int>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT DISTINCT CustomerID FROM Customer", connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        IDs.Add(Convert.ToInt32(reader["CustomerID"]));
+                    }
+                }
+                return IDs;
+            }
+        }
     }
 }
