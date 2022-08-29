@@ -7,7 +7,7 @@
     <div class="text-center">
         <div class="form-group">
             <asp:Label Text="Customer ID" runat="server"></asp:Label>
-            <asp:TextBox ID="customerID" class="form-control center-block" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="customerID" class="form-control center-block" runat="server"></asp:DropDownList>
         </div>
         <div class="form-group">
             <asp:Label Text="Address line 1" runat="server"></asp:Label>
