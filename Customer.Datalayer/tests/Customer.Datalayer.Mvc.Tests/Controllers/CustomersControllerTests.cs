@@ -1,6 +1,8 @@
 using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
 using Customer.Datalayer.Mvc.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -28,6 +30,25 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             var customersModel = customersView.Model as List<Customers>;
 
             Assert.IsTrue(customersModel.Exists(x=>x.TotalPurchasesAmount > 0));
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToCreateCustomer()
+        {
+            var mockCustomerRepository = new Mock<IRepository<Customers>>();
+            var customersController = new CustomersController(mockCustomerRepository.Object);
+            customersController.Create();
+
+            var result = customersController.Create(new Customers()
+            {
+                FirstName = "testName1",
+                LastName = "testSurname1",
+                PhoneNumber = "+12341234567890",
+                Email = "mail@mail.ru",
+                Notes = "note1",
+                TotalPurchasesAmount = 1
+            }) as RedirectToRouteResult;
+            Assert.IsNotNull(result);
         }
     }
 }

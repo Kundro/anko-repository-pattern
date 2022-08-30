@@ -45,11 +45,12 @@ namespace Customer.Datalayer.Mvc.Controllers
 
         // POST: Customers/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Customers entity)
         {
             try
             {
                 // TODO: Add insert logic here
+                _customerRepository.Create(entity);
 
                 return RedirectToAction("Index");
             }

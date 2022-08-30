@@ -1,7 +1,7 @@
 ﻿<SolutionConfiguration>
   <Settings>
     <AutoEnable>True</AutoEnable>
-    <CurrentEngineMode>Run all tests automatically [Global]</CurrentEngineMode>
+    <CurrentEngineMode>Run pinned tests automatically, others manually [Global]</CurrentEngineMode>
     <TestsWindowMenuOptions>
       <VerticalSplitMenuOption>false</VerticalSplitMenuOption>
       <ShowPassingTestsMenuOption>true</ShowPassingTestsMenuOption>
