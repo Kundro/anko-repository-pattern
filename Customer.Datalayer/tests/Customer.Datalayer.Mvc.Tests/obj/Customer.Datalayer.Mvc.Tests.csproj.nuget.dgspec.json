@@ -11,12 +11,65 @@
         "projectPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer.Mvc\\Customer.Datalayer.Mvc.csproj",
         "frameworks": {
           "net472": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj": {
+                "projectPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj"
+              }
+            }
           }
         }
       },
       "frameworks": {
         "net472": {}
+      }
+    },
+    "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj",
+        "projectName": "Customer.Datalayer",
+        "projectPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.7.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
       }
     },
     "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\tests\\Customer.Datalayer.Mvc.Tests\\Customer.Datalayer.Mvc.Tests.csproj": {
@@ -33,18 +86,21 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net472"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer.Mvc\\Customer.Datalayer.Mvc.csproj": {
                 "projectPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer.Mvc\\Customer.Datalayer.Mvc.csproj"
+              },
+              "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj": {
+                "projectPath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj"
               }
             }
           }
@@ -56,9 +112,17 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net472": {
+          "targetAlias": "net472",
           "dependencies": {
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.10, )"
+            },
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
@@ -78,22 +142,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.4.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"

@@ -17,7 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Datalayer.WebForm.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Datalayer.Mvc", "src\Customer.Datalayer.Mvc\Customer.Datalayer.Mvc.csproj", "{AA2E4247-D5A3-451C-8819-4316827EDD97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Datalayer.Mvc.Tests", "tests\Customer.Datalayer.Mvc.Tests\Customer.Datalayer.Mvc.Tests.csproj", "{4BA23360-2098-465B-8F0A-30D3989F9EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Datalayer.Mvc.Tests", "tests\Customer.Datalayer.Mvc.Tests\Customer.Datalayer.Mvc.Tests.csproj", "{4BA23360-2098-465B-8F0A-30D3989F9EBA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF704596-8295-429B-91FD-1AB7BB4A05C9} = {CF704596-8295-429B-91FD-1AB7BB4A05C9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

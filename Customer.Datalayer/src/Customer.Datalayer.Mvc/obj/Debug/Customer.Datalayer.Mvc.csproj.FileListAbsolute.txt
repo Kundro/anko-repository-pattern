@@ -77,3 +77,5 @@ D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\ob
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\obj\Debug\Customer.Datalayer.Mvc.csproj.CopyComplete
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\obj\Debug\Customer.Datalayer.Mvc.dll
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\obj\Debug\Customer.Datalayer.Mvc.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\Customer.Datalayer.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\Customer.Datalayer.pdb

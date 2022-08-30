@@ -9,6 +9,24 @@
       <ShowUnexecutedTestsMenuOption>true</ShowUnexecutedTestsMenuOption>
       <ShowIgnoredTestsMenuOption>true</ShowIgnoredTestsMenuOption>
     </TestsWindowMenuOptions>
-    <TestsWindowSplitterDistance>91.5730361938477%</TestsWindowSplitterDistance>
+    <TestsWindowSplitterDistance>94.8453598022461%</TestsWindowSplitterDistance>
+    <TestsWindowTreeLayout>
+      <Column>
+        <Name>Name</Name>
+        <Width>234</Width>
+      </Column>
+      <Column>
+        <Name>Status</Name>
+        <Width>39</Width>
+      </Column>
+      <Column>
+        <Name>LastExecutionTime</Name>
+        <Width>36</Width>
+      </Column>
+      <Column>
+        <Name>GridNode</Name>
+        <Width>48</Width>
+      </Column>
+    </TestsWindowTreeLayout>
   </Settings>
 </SolutionConfiguration>
