@@ -8,18 +8,18 @@
         <div class="form-group">
             <asp:Label Text="First name (optional)" runat="server"></asp:Label>
             <asp:TextBox ID="firstName" maxlength="50" class="form-control center-block" runat="server"></asp:TextBox>
-            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="First name hould be less than 50." ValidationExpression="^.{,50}$"  ControlToValidate="firstName" runat="server" ></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="First name should be less than 50." ValidationExpression="^.{0,50}$"  ControlToValidate="firstName" runat="server" ></asp:RegularExpressionValidator>
         </div>
         <div class="form-group">
             <asp:Label Text="Last name" runat="server"></asp:Label>
             <asp:TextBox ID="lastName" maxlength="50" class="form-control center-block" runat="server" required="required"></asp:TextBox>
             <asp:RequiredFieldValidator CssClass="text-danger" ErrorMessage="Last name is required." ControlToValidate="lastName" runat="server"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="Last name should be less than 50." ValidationExpression="^.{,50}$"  ControlToValidate="lastName" runat="server"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="Last name should be less than 50." ValidationExpression="^.{0,50}$"  ControlToValidate="lastName" runat="server"></asp:RegularExpressionValidator>
         </div>
         <div class="form-group">
             <asp:Label Text="Phone number (optional)" runat="server"></asp:Label>
             <asp:TextBox ID="phoneNumber" maxlength="15" class="form-control center-block" runat="server"></asp:TextBox>
-            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="Invalid phone number" ValidationExpression="^\+?\d{6,7}[2-9]\d{3}$" ControlToValidate="phoneNumber" runat="server"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator CssClass="text-danger" ErrorMessage="Invalid phone number" ValidationExpression="^\+?\d{0,14}$" ControlToValidate="phoneNumber" runat="server"></asp:RegularExpressionValidator>
         </div>
         <div class="form-group">
             <asp:Label Text="Email (optional)" runat="server"></asp:Label>
