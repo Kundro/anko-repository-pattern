@@ -71,23 +71,5 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             var customers = (customersController.Index() as ViewResult).Model as List<Customers>;
             Assert.IsTrue(customers.Exists(x => x.FirstName == "NewFirstName"));
         }
-
-        [TestMethod]
-        public void ShouldNotBeAbleToCreateCustomer()
-        {
-            var mockCustomerRepository = new Mock<CustomerRepository>();
-            var customersController = new CustomersController(mockCustomerRepository.Object);
-
-            var result = customersController.Create(new Customers()
-            {
-                FirstName = "testName1",
-                LastName = "testSurname1",
-                PhoneNumber = "+123123456780",
-                Email = "mail@mail.ru",
-                Notes = "note1",
-                TotalPurchasesAmount = 1
-            }) as RedirectToRouteResult;
-            Assert.IsNull(result);
-        }
     }
 }

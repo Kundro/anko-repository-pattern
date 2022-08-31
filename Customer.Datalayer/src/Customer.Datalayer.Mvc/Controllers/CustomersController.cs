@@ -32,7 +32,8 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var customer = _customerRepository.Read(id);
+            return View(customer);
         }
 
         // GET: Customers/Create
@@ -45,61 +46,50 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost]
         public ActionResult Create(Customers customer)
         {
-            // TODO: Add insert logic here
-            try
+            if (ModelState.IsValid)
             {
                 _customerRepository.Create(customer);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                ViewBag.ErrorMessage = "Error. Invalid fields. Try again.";
-                return View();
+            } else {
+                return View(customer);
             }
         }
 
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var customer = _customerRepository.Read(id);
+            return View(customer);
         }
 
         // POST: Customers/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Customers customer)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                _customerRepository.Update(customer);
                 return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
+                return View(customer);
             }
         }
 
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var customer = _customerRepository.Read(id);
+            return View(customer);
         }
 
         // POST: Customers/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _customerRepository.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
