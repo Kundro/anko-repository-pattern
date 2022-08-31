@@ -22,8 +22,6 @@ namespace Customer.Datalayer.Mvc.Controllers
             _customerRepository = customerRepository;
         }
 
-
-
         // GET: Customers
         public ActionResult Index()
         {
@@ -47,17 +45,10 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost]
         public ActionResult Create(Customers customer)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            // TODO: Add insert logic here
                 _customerRepository.Create(customer);
 
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Customers/Edit/5
