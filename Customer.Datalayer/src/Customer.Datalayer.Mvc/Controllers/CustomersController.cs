@@ -11,13 +11,13 @@ namespace Customer.Datalayer.Mvc.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly IRepository<Customers> _customerRepository;
+        private readonly CustomerRepository _customerRepository;
 
         public CustomersController()
         {
             _customerRepository = new CustomerRepository();
         }
-        public CustomersController(IRepository<Customers> customerRepository)
+        public CustomersController(CustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }
@@ -46,9 +46,16 @@ namespace Customer.Datalayer.Mvc.Controllers
         public ActionResult Create(Customers customer)
         {
             // TODO: Add insert logic here
+            try
+            {
                 _customerRepository.Create(customer);
-
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewBag.ErrorMessage = "Error. Invalid fields. Try again.";
+                return View();
+            }
         }
 
         // GET: Customers/Edit/5

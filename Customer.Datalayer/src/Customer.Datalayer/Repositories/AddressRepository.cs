@@ -193,6 +193,11 @@ namespace Customer.Datalayer.Repositories
             }
         }
 
+        public List<int> GetAllIDs()
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteAll()
         {
             using (var connection = GetConnection())
