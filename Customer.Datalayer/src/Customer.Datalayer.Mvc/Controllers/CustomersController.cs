@@ -6,21 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Customer.Datalayer.Business;
+using Microsoft.Ajax.Utilities;
 using PagedList;
 
 namespace Customer.Datalayer.Mvc.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly CustomerRepository _customerRepository;
+        private readonly CustomerService _customerService;
 
         public CustomersController()
         {
-            _customerRepository = new CustomerRepository();
+            _customerService = new CustomerService();
         }
-        public CustomersController(CustomerRepository customerRepository)
+
+        public CustomersController(CustomerService customerService)
         {
-            _customerRepository = customerRepository;
+            _customerService = customerService;
         }
 
         // GET: Customers
@@ -28,40 +31,43 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             var pageNumber = page ?? 1;
             var pageSize = 7;
-            var customers = _customerRepository.GetAll();
+            var customers = _customerService.GetCustomers();
             return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            var customer = _customerRepository.Read(id);
+            var customer = _customerService.ReadCustomer(id);
+            if (customer==null) return View("Error");
             return View(customer);
         }
 
         // GET: Customers/Create
         public ActionResult Create()
         {
-            return View();
+           return View();
         }
 
         // POST: Customers/Create
         [HttpPost]
         public ActionResult Create(Customers customer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _customerRepository.Create(customer);
+                _customerService.CreateCustomer(customer);
                 return RedirectToAction("Index");
-            } else {
-                return View(customer);
+            } 
+            catch
+            {
+                return View("Error");
             }
         }
 
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            var customer = _customerRepository.Read(id);
+            var customer = _customerService.ReadCustomer(id);
             return View(customer);
         }
 
@@ -71,7 +77,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                _customerRepository.Update(customer);
+                _customerService.UpdateCustomer(customer);
                 return RedirectToAction("Index");
             }
             else
@@ -83,7 +89,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-            var customer = _customerRepository.Read(id);
+            var customer = _customerService.ReadCustomer(id);
             return View(customer);
         }
 
@@ -91,7 +97,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            _customerRepository.Delete(id);
+            _customerService.DeleteCustomer(id);
             return RedirectToAction("Index");
         }
     }

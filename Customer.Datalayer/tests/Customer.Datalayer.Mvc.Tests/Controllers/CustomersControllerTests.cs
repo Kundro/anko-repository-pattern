@@ -40,8 +40,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         public void ShouldBeAbleToCreateAction()
         {
             // test for redirect
-            var mockCustomerRepository = new Mock<CustomerRepository>();
-            var customersController = new CustomersController(mockCustomerRepository.Object);
+            var customersController = new CustomersController();
 
             var result = customersController.Create(new Customers()
             {

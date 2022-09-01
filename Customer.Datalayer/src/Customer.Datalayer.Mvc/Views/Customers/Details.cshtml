@@ -7,66 +7,104 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Customers</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerID)
-        </dt>
+	<h4>Customers</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.CustomerID)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerID)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.CustomerID)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.FirstName)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.LastName)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.LastName)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.PhoneNumber)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.PhoneNumber)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.Notes)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
+		<dd>
+			@Html.DisplayFor(model => model.Notes)
+		</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalPurchasesAmount)
-        </dt>
+		<dt>
+			@Html.DisplayNameFor(model => model.TotalPurchasesAmount)
+		</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TotalPurchasesAmount)
-        </dd>
-    </dl>
+		<dd>
+			@Html.DisplayFor(model => model.TotalPurchasesAmount)
+		</dd>
+	</dl>
 </div>
+
+<div>
+    <table class="table">
+    <tr>
+	    <th>
+		    Address ID
+	    </th>
+	    <th>
+		    Customer ID
+	    </th>
+	    <th>
+		    Address line
+	    </th>
+	    <th>
+		    Address line 2
+	    </th>
+	    <th>
+		    City
+	    </th>
+	    <th>
+		    Postal code
+	    </th>
+	    <th>
+		    State name
+	    </th>
+	    <th>
+		    Country
+	    </th>
+
+	    <th></th>
+    </tr>
+	@foreach (var item in ViewBag.AllAddresses)
+    {
+        
+    }
+    </table>
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
     @Html.ActionLink("Back to List", "Index")
