@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
 using Customer.Datalayer.Repositories;
 
 namespace Customer.Datalayer.Business
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService<Customers>
     {
         private readonly CustomerRepository _customerRepository;
         private readonly AddressRepository _addressRepository;
