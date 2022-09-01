@@ -7,8 +7,7 @@ namespace Customer.Datalayer.BusinessEntities
         public int CustomerID { get; set; }
         [StringLength(50, ErrorMessage = "First name should be less than 50.")]
         public string FirstName { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name is required.")]
-        [StringLength(50, ErrorMessage = "Last name should be less than 50.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name is required."), StringLength(50, ErrorMessage = "Last name should be less than 50.")]
         public string LastName { get; set; }
         [RegularExpression("^\\+[1-9]\\d{1,14}$", ErrorMessage = "Invalid phone number.")]
         public string PhoneNumber { get; set; }
