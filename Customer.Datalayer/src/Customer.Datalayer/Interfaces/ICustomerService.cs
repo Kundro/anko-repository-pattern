@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Customer.Datalayer.Interfaces
 {
-    public interface ICustomerService<Customers>
+    public interface IService<TEntity>
     {
-        List<Customers> GetCustomers();
-        Customers ReadCustomer(int id);
-        void CreateCustomer(Customers entity);
-        void UpdateCustomer(Customers entity);
+        List<TEntity> GetCustomers();
+        TEntity ReadCustomer(int id);
+        void CreateCustomer(TEntity entity);
+        void UpdateCustomer(TEntity entity);
         void DeleteCustomer(int id);
     }
 }

@@ -9,7 +9,7 @@ using Customer.Datalayer.Repositories;
 
 namespace Customer.Datalayer.Business
 {
-    public class CustomerService : ICustomerService<Customers>
+    public class CustomerService : IService<Customers>
     {
         private readonly CustomerRepository _customerRepository;
         private readonly AddressRepository _addressRepository;
