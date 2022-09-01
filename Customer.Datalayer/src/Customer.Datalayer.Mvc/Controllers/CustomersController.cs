@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace Customer.Datalayer.Mvc.Controllers
 {
@@ -23,10 +24,12 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            var pageNumber = page ?? 1;
+            var pageSize = 7;
             var customers = _customerRepository.GetAll();
-            return View(customers);
+            return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Customers/Details/5

@@ -42,3 +42,5 @@ D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.Tests\obj\Debug\net472\Customer.Datalayer.Mvc.Tests.csproj.CopyComplete
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.Tests\obj\Debug\net472\Customer.Datalayer.Mvc.Tests.dll
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.Tests\obj\Debug\net472\Customer.Datalayer.Mvc.Tests.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.Tests\bin\Debug\net472\PagedList.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.Mvc.Tests\bin\Debug\net472\PagedList.Mvc.dll

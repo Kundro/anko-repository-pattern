@@ -79,3 +79,7 @@ D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\ob
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\obj\Debug\Customer.Datalayer.Mvc.pdb
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\Customer.Datalayer.dll
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\Customer.Datalayer.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\PagedList.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\PagedList.Mvc.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\PagedList.xml
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.Mvc\bin\PagedList.Mvc.xml

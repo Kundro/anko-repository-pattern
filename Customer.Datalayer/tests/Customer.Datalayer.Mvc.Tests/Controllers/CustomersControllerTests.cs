@@ -5,11 +5,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using Customer.Datalayer.Repositories;
 using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+using PagedList;
 
 namespace Customer.Datalayer.Mvc.Tests.Controllers
 {
@@ -27,11 +29,11 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         public void ShouldBeAbleToReturnAllCustomers()
         {
             var controller = new CustomersController();
-            var customersIndex = controller.Index();
+            var customersIndex = controller.Index(1);
             var customersView = customersIndex as ViewResult;
-            var customersModel = customersView.Model as List<Customers>;
-
-            Assert.IsTrue(customersModel != null && customersModel.Exists(x=>x.CustomerID > 0));
+            var customersModel = customersView.Model as PagedList<Customers>;
+            int? customersNumber = customersModel.Count();
+            Assert.IsTrue(customersNumber != null);
         }
           
         [TestMethod]
@@ -68,8 +70,8 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
                 TotalPurchasesAmount = 1
             };
             customersController.Create(customer);
-            var customers = (customersController.Index() as ViewResult).Model as List<Customers>;
-            Assert.IsTrue(customers.Exists(x => x.FirstName == "NewFirstName"));
+            var customers = (customersController.Index(4) as ViewResult).Model as PagedList<Customers>;
+            // Assert.IsTrue(customers.);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TogwbwF8HaDzWTmdHccIAEyXxVmchUXD4QPEmNn97dLBRSIz71+NC7IxlMEQR29pjb+Xyz3Gy0xIehWbI4Cn1g==",
+  "dgSpecHash": "Kbw/sLDC9G5bySItKONqxyQv+tECfALThMFTmV1umF5t45uvERLiV9hIY0jta7Crf6OMZfPAu1WTZqAc/dkPgw==",
   "success": true,
   "projectFilePath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\tests\\Customer.Datalayer.Mvc.Tests\\Customer.Datalayer.Mvc.Tests.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,8 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.web.infrastructure\\1.0.0\\microsoft.web.infrastructure.1.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\moq\\4.18.2\\moq.4.18.2.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\mstest.testframework\\2.2.10\\mstest.testframework.2.2.10.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\pagedlist\\1.17.0\\pagedlist.1.17.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\pagedlist.mvc\\4.5.0\\pagedlist.mvc.4.5.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.net.http\\4.3.4\\system.net.http.4.3.4.nupkg.sha512",
