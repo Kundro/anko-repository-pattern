@@ -67,44 +67,82 @@
 		</dd>
 	</dl>
 </div>
+@if (ViewBag.Check)
+{
+	<div>
+		<table class="table">
+			<tr>
+				<th>
+					Address ID
+				</th>
+				<th>
+					Address line
+				</th>
+				<th>
+					Address line 2
+				</th>
+				<th>
+					Address type
+				</th>
+				<th>
+					City
+				</th>
+				<th>
+					Postal code
+				</th>
+				<th>
+					State
+				</th>
+				<th>
+					Country
+				</th>
 
-<div>
-    <table class="table">
-    <tr>
-	    <th>
-		    Address ID
-	    </th>
-	    <th>
-		    Customer ID
-	    </th>
-	    <th>
-		    Address line
-	    </th>
-	    <th>
-		    Address line 2
-	    </th>
-	    <th>
-		    City
-	    </th>
-	    <th>
-		    Postal code
-	    </th>
-	    <th>
-		    State name
-	    </th>
-	    <th>
-		    Country
-	    </th>
-
-	    <th></th>
-    </tr>
-	@foreach (var item in ViewBag.AllAddresses)
-    {
-        
-    }
-    </table>
-</div>
-
+				<th></th>
+			</tr>
+			@foreach (var item in ViewBag.AllAddresses)
+			{
+				if (item.CustomerID == Model.CustomerID)
+				{
+					<tr>
+						<td>
+							@item.AddressID
+						</td>
+						<td>
+							@item.AddressLine
+						</td>
+						<td>
+							@item.AddressLine2
+						</td>
+						<td>
+							@item.AddressType
+						</td>
+						<td>
+							@item.City
+						</td>
+						<td>
+							@item.PostalCode
+						</td>
+						<td>
+							@item.StateName
+						</td>
+						<td>
+							@item.Country
+						</td>
+						<td>
+							@Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
+							@Html.ActionLink("Details", "Details", new { id = item.AddressID }) |
+							@Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
+						</td>
+					</tr>
+				}
+			}
+		</table>
+	</div>
+}
+else
+{
+	<h4>No addresses</h4>
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
     @Html.ActionLink("Back to List", "Index")

@@ -173,9 +173,9 @@ namespace Customer.Datalayer.Repositories
         {
             using (var connection = GetConnection())
             {
-                var customers = new List<Customers>();
+                List<Customers> customers = new List<Customers>();
                 connection.Open();
-                var command = new SqlCommand("SELECT * FROM [Customer]", connection);
+                var command = new SqlCommand("SELECT * FROM Customer", connection);
 
                 using (var reader = command.ExecuteReader())
                 {

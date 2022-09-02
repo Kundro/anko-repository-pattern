@@ -29,7 +29,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         public void ShouldBeAbleToReturnAllCustomers()
         {
             var controller = new CustomersController();
-            var customersIndex = controller.Index(1);
+            var customersIndex = controller.Index(4);
             var customersView = customersIndex as ViewResult;
             var customersModel = customersView.Model as PagedList<Customers>;
             int? customersNumber = customersModel.Count();

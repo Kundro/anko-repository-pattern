@@ -4,6 +4,7 @@ using Customer.Datalayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Customer.Datalayer.Business;
@@ -38,7 +39,19 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
+            var allAddresses = _customerService.GetAllAddresses();
+            ViewBag.AllAddresses = allAddresses;
             var customer = _customerService.ReadCustomer(id);
+
+            // check if no addresses in customer
+            var check = true;
+            int customerID = _customerService.ReadCustomer(id).CustomerID;
+            if (!allAddresses.Exists(x => x.CustomerID == customerID))
+            {
+                check = false;
+            }
+            ViewBag.Check = check;
+
             if (customer==null) return View("Error");
             return View(customer);
         }
@@ -53,14 +66,13 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost]
         public ActionResult Create(Customers customer)
         {
-            try
+            if (!ModelState.IsValid)
             {
+                ViewBag.ErrorMessage = "Error. Invalid customer fields. Try again.";
+                return View();
+            } else {
                 _customerService.CreateCustomer(customer);
                 return RedirectToAction("Index");
-            } 
-            catch
-            {
-                return View("Error");
             }
         }
 
