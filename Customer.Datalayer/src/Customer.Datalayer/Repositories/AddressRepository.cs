@@ -88,8 +88,8 @@ namespace Customer.Datalayer.Repositories
                             Country = reader["Country"].ToString()
                         };
                     }
+                    return null;
                 }
-                return null;
             }
 
         }

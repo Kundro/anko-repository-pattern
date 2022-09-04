@@ -24,27 +24,27 @@ namespace Customer.Datalayer.Business
             _customerRepository = customerRepository;
             _addressRepository = addressRepository ?? new AddressRepository();
         }
-        public List<Customers> GetCustomers()
+        public List<Customers> Get()
         {
             return _customerRepository.GetAll();
         }
 
-        public Customers ReadCustomer(int id)
+        public Customers Read(int id)
         {
             return _customerRepository.Read(id);
         }
 
-        public void CreateCustomer(Customers entity)
+        public void Create(Customers entity)
         {
             _customerRepository.Create(entity);
         }
 
-        public void UpdateCustomer(Customers entity)
+        public void Update(Customers entity)
         {
             _customerRepository.Update(entity);
         }
 
-        public void DeleteCustomer(int id)
+        public void Delete(int id)
         {
             _customerRepository.Delete(id);
         }

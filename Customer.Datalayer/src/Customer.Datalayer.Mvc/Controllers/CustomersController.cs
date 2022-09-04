@@ -32,7 +32,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             var pageNumber = page ?? 1;
             var pageSize = 7;
-            var customers = _customerService.GetCustomers();
+            var customers = _customerService.Get();
             return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
@@ -41,11 +41,11 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             var allAddresses = _customerService.GetAllAddresses();
             ViewBag.AllAddresses = allAddresses;
-            var customer = _customerService.ReadCustomer(id);
+            var customer = _customerService.Read(id);
 
             // check if no addresses in customer
             var check = true;
-            int customerID = _customerService.ReadCustomer(id).CustomerID;
+            int customerID = _customerService.Read(id).CustomerID;
             if (!allAddresses.Exists(x => x.CustomerID == customerID))
             {
                 check = false;
@@ -71,7 +71,7 @@ namespace Customer.Datalayer.Mvc.Controllers
                 ViewBag.ErrorMessage = "Error. Invalid customer fields. Try again.";
                 return View();
             } else {
-                _customerService.CreateCustomer(customer);
+                _customerService.Create(customer);
                 return RedirectToAction("Index");
             }
         }
@@ -79,7 +79,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            var customer = _customerService.ReadCustomer(id);
+            var customer = _customerService.Read(id);
             return View(customer);
         }
 
@@ -89,7 +89,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                _customerService.UpdateCustomer(customer);
+                _customerService.Update(customer);
                 return RedirectToAction("Index");
             }
             else
@@ -101,7 +101,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-            var customer = _customerService.ReadCustomer(id);
+            var customer = _customerService.Read(id);
             return View(customer);
         }
 
@@ -109,7 +109,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            _customerService.DeleteCustomer(id);
+            _customerService.Delete(id);
             return RedirectToAction("Index");
         }
     }
