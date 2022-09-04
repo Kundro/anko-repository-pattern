@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Customer.Datalayer.Business;
+using PagedList;
 
 namespace Customer.Datalayer.Mvc.Controllers
 {
@@ -19,6 +20,14 @@ namespace Customer.Datalayer.Mvc.Controllers
         public AddressesController(AddressService addressService)
         {
             _addressService = addressService;
+        }
+        //GET: Addresses
+        public ActionResult Index(int? page)
+        {
+            var pageNumber = page ?? 1;
+            var pageSize = 5;
+            var customers = _addressService.Get();
+            return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Addresses/Details/5
