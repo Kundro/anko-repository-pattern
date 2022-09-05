@@ -45,8 +45,8 @@ namespace Customer.Datalayer.Mvc.Controllers
 
             // check if no addresses in customer
             var check = true;
-            int customerID = _customerService.Read(id).CustomerID;
-            if (!allAddresses.Exists(x => x.CustomerID == customerID))
+            int customerId = _customerService.Read(id).CustomerID;
+            if (!allAddresses.Exists(x => x.CustomerID == customerId))
             {
                 check = false;
             }
