@@ -89,12 +89,13 @@ namespace Customer.Datalayer.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                _customerService.Update(customer);
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = "Error. Invalid customer fields. Try again.";
+                return View(customer);
             }
             else
             {
-                return View(customer);
+                _customerService.Update(customer);
+                return RedirectToAction("Index");
             }
         }
 

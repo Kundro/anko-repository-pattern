@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Customer.Datalayer.Business;
+using Customer.Datalayer.BusinessEntities;
 using PagedList;
 
 namespace Customer.Datalayer.Mvc.Controllers
@@ -45,39 +46,42 @@ namespace Customer.Datalayer.Mvc.Controllers
 
         // POST: Addresses/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Addresses address)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                ViewBag.ErrorMessage = "Error. Invalid address fields. Try again.";
                 return View();
+            } else {
+                _addressService.Create(address);
+                var addresses = _addressService.Get();
+                var customerId = addresses[addresses.Count - 1].CustomerID;
+                return RedirectToAction("Details", "Customers", new { id = customerId });
             }
         }
 
         // GET: Addresses/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var address = _addressService.Read(id);
+            return View(address);
         }
 
         // POST: Addresses/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Addresses address)
         {
-            try
+            if(!ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = "Error. Invalid customer fields. Try again.";
+                return View(address);
             }
-            catch
-            {
-                return View();
+            else
+            {   
+                var addresses = _addressService.Get();
+                var customerId = addresses[addresses.Count-1].CustomerID;
+                _addressService.Update(address);
+                return RedirectToAction("Details", "Customers", new { id = customerId });
             }
         }
 

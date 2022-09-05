@@ -28,7 +28,7 @@ namespace Customer.Datalayer.Business
         }
         public void Create(Addresses entity)
         {
-            throw new NotImplementedException();
+            _addressRepository.Create(entity);
         }
 
         public void Delete(int id)
@@ -48,7 +48,7 @@ namespace Customer.Datalayer.Business
 
         public void Update(Addresses entity)
         {
-            throw new NotImplementedException();
+            _addressRepository.Update(entity);
         }
     }
 }

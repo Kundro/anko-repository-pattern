@@ -1,4 +1,5 @@
-﻿@model Customer.Datalayer.BusinessEntities.Customers
+﻿@using System.Runtime.Remoting.Messaging
+@model Customer.Datalayer.BusinessEntities.Customers
 
 @{
     ViewBag.Title = "Details";
@@ -77,6 +78,9 @@
 							Address ID
 						</th>
 						<th>
+							Customer ID
+						</th>
+						<th>
 							Address line
 						</th>
 						<th>
@@ -97,8 +101,9 @@
 						<th>
 							Country
 						</th>
-
-						<th></th>
+						<th>
+							@Html.ActionLink("Create New Address", "Create", "Addresses", new {id = Model.CustomerID}, "")
+						</th>
 					</tr>
 					@foreach (var item in ViewBag.AllAddresses)
 					{
@@ -107,6 +112,9 @@
 							<tr>
 								<td>
 									@item.AddressID
+								</td>
+								<td>
+									@item.CustomerID
 								</td>
 								<td>
 									@item.AddressLine
@@ -130,7 +138,7 @@
 									@item.Country
 								</td>
 								<td>
-									@Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
+									@Html.ActionLink("Edit", "Edit", "Addresses", new { id = item.AddressID }, "") |
 									@Html.ActionLink("Details", "Details","Addresses", new { id = item.AddressID },"") |
 									@Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
 								</td>
@@ -142,9 +150,12 @@
 			else
 			{
 				<p>No addresses</p>
+                <p>@Html.ActionLink("Create New Address", "Create", "Addresses", new { id = Model.CustomerID }, "")</p>
 			}
 			<p>
-				@Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+				@Html.ActionLink("Edit customer", "Edit", new { id = Model.CustomerID })
+			</p>
+			<p>
 				@Html.ActionLink("Back to List", "Index")
 			</p>
 
