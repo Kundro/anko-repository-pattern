@@ -15,7 +15,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(Model => Model.AddressID)
+            @ViewContext.RouteData.Values["id"]
         </dd>
 
         <dt>

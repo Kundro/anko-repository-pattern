@@ -33,7 +33,7 @@ namespace Customer.Datalayer.Business
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _addressRepository.Delete(id);
         }
 
         public List<Addresses> Get()

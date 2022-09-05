@@ -88,23 +88,18 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Addresses/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var address = _addressService.Read(id);
+            return View(address);
         }
 
         // POST: Addresses/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var addresses = _addressService.Get();
+            var customerId = addresses[addresses.Count - 1].CustomerID;
+            _addressService.Delete(id);
+            return RedirectToAction("Details", "Customers", new { id = customerId });
         }
     }
 }
