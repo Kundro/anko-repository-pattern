@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Xml.Linq;
 using Customer.Datalayer.Business;
 using Customer.Datalayer.Repositories;
+using FluentAssertions.Execution;
 using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 using PagedList;
@@ -59,9 +60,9 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         [TestMethod]
         public void ShouldBeAbleToCreateCustomer()
         {
-            var customerServiceMock = new Mock<CustomerService>();
+            var customerServiceMock = new Mock<IService<Customers>>();
             var customersController = new CustomersController(customerServiceMock.Object);
-
+            customersController.Create();
             var customer = new Customers()
             {
                 FirstName = "NewFirstName",
@@ -73,12 +74,14 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             };
             var result = customersController.Create(customer) as RedirectToRouteResult;
             Assert.IsNotNull(result);
+
+            customerServiceMock.Verify(x => x.Create(customer));
         }
 
         [TestMethod]
         public void ShouldBeAbleToEditCustomer()
         {
-            var customerServiceMock = new Mock<CustomerService>();
+            var customerServiceMock = new Mock<IService<Customers>>();
             var customersController = new CustomersController(customerServiceMock.Object);
 
             var customer = new Customers()
@@ -91,6 +94,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
                 TotalPurchasesAmount = 1
             };
             customersController.Edit(5);
+
             var result = customersController.Edit(5, customer) as RedirectToRouteResult;
             Assert.IsNotNull(result);
         }
@@ -106,6 +110,15 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
 
             Assert.IsNotNull(result);
             customerServiceMock.Verify(x => x.Delete(5));
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToShowDetails()
+        {
+            var customersController = new CustomersController();
+            var customer = (customersController.Details(7) as ViewResult).Model as Customers;
+
+            Assert.AreEqual("testName2", customer.FirstName);
         }
     }
 }
