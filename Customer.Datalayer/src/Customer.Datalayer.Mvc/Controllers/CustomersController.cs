@@ -15,16 +15,20 @@ namespace Customer.Datalayer.Mvc.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly CustomerService _customerService;
+        private readonly IService<Customers> _customerService;
+        private readonly IService<Addresses> _addressService;
+
 
         public CustomersController()
         {
             _customerService = new CustomerService();
+            _addressService = new AddressService();
         }
 
-        public CustomersController(CustomerService customerService)
+        public CustomersController(IService<Customers> customerService, IService<Addresses> addressService = null)
         {
             _customerService = customerService;
+            _addressService = addressService ?? new AddressService();
         }
 
         // GET: Customers
@@ -39,7 +43,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            var allAddresses = _customerService.GetAllAddresses();
+            var allAddresses = _addressService.Get();
             ViewBag.AllAddresses = allAddresses;
             var customer = _customerService.Read(id);
 
@@ -85,9 +89,9 @@ namespace Customer.Datalayer.Mvc.Controllers
 
         // POST: Customers/Edit/5
         [HttpPost]
-        public ActionResult Edit(Customers customer)
+        public ActionResult Edit(int id, Customers customer)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 ViewBag.ErrorMessage = "Error. Invalid customer fields. Try again.";
                 return View(customer);
@@ -110,8 +114,8 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            _customerService.Delete(id);
-            return RedirectToAction("Index");
+                _customerService.Delete(id);
+                return RedirectToAction("Index");
         }
     }
 }

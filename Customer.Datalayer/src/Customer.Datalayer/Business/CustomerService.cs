@@ -48,10 +48,5 @@ namespace Customer.Datalayer.Business
         {
             _customerRepository.Delete(id);
         }
-
-        public List<Addresses> GetAllAddresses()
-        {
-            return _addressRepository.GetAll();
-        }
     }
 }

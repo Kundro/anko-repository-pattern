@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Xml.Linq;
+using Customer.Datalayer.Business;
 using Customer.Datalayer.Repositories;
 using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -58,7 +59,9 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         [TestMethod]
         public void ShouldBeAbleToCreateCustomer()
         {
-            var customersController = new CustomersController();
+            var customerServiceMock = new Mock<CustomerService>();
+            var customersController = new CustomersController(customerServiceMock.Object);
+
             var customer = new Customers()
             {
                 FirstName = "NewFirstName",
@@ -68,9 +71,41 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
                 Notes = "note1",
                 TotalPurchasesAmount = 1
             };
-            customersController.Create(customer);
-            var customers = (customersController.Index(4) as ViewResult).Model as PagedList<Customers>;
-            // Assert.IsTrue(customers.);
+            var result = customersController.Create(customer) as RedirectToRouteResult;
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToEditCustomer()
+        {
+            var customerServiceMock = new Mock<CustomerService>();
+            var customersController = new CustomersController(customerServiceMock.Object);
+
+            var customer = new Customers()
+            {
+                FirstName = "NewFirstName",
+                LastName = "testSurname1",
+                PhoneNumber = "+12341234567890",
+                Email = "mail@mail.ru",
+                Notes = "note1",
+                TotalPurchasesAmount = 1
+            };
+            customersController.Edit(5);
+            var result = customersController.Edit(5, customer) as RedirectToRouteResult;
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToDeleteCustomer()
+        {
+            var customerServiceMock = new Mock<IService<Customers>>();
+            var customersController = new CustomersController(customerServiceMock.Object);
+
+            customersController.Delete(5);
+            var result = customersController.DeleteConfirmed(5) as RedirectToRouteResult;
+
+            Assert.IsNotNull(result);
+            customerServiceMock.Verify(x => x.Delete(5));
         }
     }
 }
