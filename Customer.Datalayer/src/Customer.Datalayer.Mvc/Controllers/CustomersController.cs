@@ -18,7 +18,6 @@ namespace Customer.Datalayer.Mvc.Controllers
         private readonly IService<Customers> _customerService;
         private readonly IService<Addresses> _addressService;
 
-
         public CustomersController()
         {
             _customerService = new CustomerService();

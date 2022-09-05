@@ -5,20 +5,21 @@ using System.Web;
 using System.Web.Mvc;
 using Customer.Datalayer.Business;
 using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
 using PagedList;
 
 namespace Customer.Datalayer.Mvc.Controllers
 {
     public class AddressesController : Controller
     {
-        private readonly AddressService _addressService;
+        private readonly IService<Addresses> _addressService;
 
         public AddressesController()
         {
             _addressService = new AddressService();
         }
 
-        public AddressesController(AddressService addressService)
+        public AddressesController(IService<Addresses> addressService)
         {
             _addressService = addressService;
         }
@@ -69,7 +70,7 @@ namespace Customer.Datalayer.Mvc.Controllers
 
         // POST: Addresses/Edit/5
         [HttpPost]
-        public ActionResult Edit(Addresses address)
+        public ActionResult Edit(int id, Addresses address)
         {
             if(!ModelState.IsValid)
             {
