@@ -89,7 +89,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Back to List", "Details", "Customers", new { id = ViewContext.RouteData.Values["id"] }, "")
 </div>
 
 @section Scripts {
