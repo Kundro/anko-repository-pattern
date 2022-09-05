@@ -85,6 +85,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", "Addresses",new { id = Model.AddressID }, "") |
+    @Html.ActionLink("Edit address", "Edit", "Addresses",new { id = ViewContext.RouteData.Values["id"] }, "") |
     @Html.ActionLink("Back to List", "Details", "Customers", new {id = Model.CustomerID}, "")
 </p>

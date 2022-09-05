@@ -54,9 +54,9 @@
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.AddressID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.AddressID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.AddressID })
+                @Html.ActionLink("Edit", "Edit", "Addresses", new { id = item.AddressID }, "") |
+                @Html.ActionLink("Details", "Details", "Addresses",new { id = item.AddressID }, "") |
+                @Html.ActionLink("Delete", "Delete", "Addresses", new { id = item.AddressID }, "")
             </td>
         </tr>
     }
