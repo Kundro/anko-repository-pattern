@@ -60,9 +60,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         {
             var addressServiceMock = new Mock<IService<Addresses>>();
             var addressesController = new AddressesController(addressServiceMock.Object);
-            
             addressesController.Create();
-
             var address = new Addresses()
             {
                 CustomerID = 9,
@@ -74,6 +72,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
                 StateName = "TestState",
                 Country = "USA"
             };
+            addressesController.Create(address);
 
             addressServiceMock.Verify(x => x.Create(address));
         }
@@ -108,7 +107,7 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             var addressesController = new AddressesController(addressServiceMock.Object);
 
             addressesController.Delete(1);
-            var result = addressesController.DeleteConfirmed(1) as RedirectToRouteResult;
+            var result = addressesController.DeleteConfirmed(5) as RedirectToRouteResult;
 
             Assert.IsNotNull(result);
             addressServiceMock.Verify(x => x.Delete(5));

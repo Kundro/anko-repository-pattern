@@ -83,6 +83,11 @@ namespace Customer.Datalayer.Mvc.Controllers
         public ActionResult Edit(int id)
         {
             var customer = _customerService.Read(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+
+            }
             return View(customer);
         }
 

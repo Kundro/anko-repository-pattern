@@ -55,9 +55,7 @@ namespace Customer.Datalayer.Mvc.Controllers
                 return View();
             } else {
                 _addressService.Create(address);
-                var addresses = _addressService.Get();
-                var customerId = addresses[addresses.Count - 1].CustomerID;
-                return RedirectToAction("Details", "Customers", new { id = customerId });
+                return RedirectToAction("Details", "Customers", new { id = address.CustomerID});
             }
         }
 
@@ -65,6 +63,10 @@ namespace Customer.Datalayer.Mvc.Controllers
         public ActionResult Edit(int id)
         {
             var address = _addressService.Read(id);
+            if (address == null)
+            {
+                return HttpNotFound();
+            }
             return View(address);
         }
 
@@ -79,10 +81,8 @@ namespace Customer.Datalayer.Mvc.Controllers
             }
             else
             {   
-                var addresses = _addressService.Get();
-                var customerId = addresses[addresses.Count-1].CustomerID;
                 _addressService.Update(address);
-                return RedirectToAction("Details", "Customers", new { id = customerId });
+                return RedirectToAction("Details", "Customers", new { id = address.CustomerID });
             }
         }
 

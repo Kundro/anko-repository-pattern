@@ -12,18 +12,15 @@ namespace Customer.Datalayer.Business
     public class AddressService : IService<Addresses>
     {
 
-        private readonly CustomerRepository _customerRepository;
         private readonly AddressRepository _addressRepository;
 
         public AddressService()
         {
-            _customerRepository = new CustomerRepository();
             _addressRepository = new AddressRepository();
         }
 
-        public AddressService(CustomerRepository customerRepository, AddressRepository addressRepository = null)
+        public AddressService(AddressRepository addressRepository = null)
         {
-            _customerRepository = customerRepository;
             _addressRepository = addressRepository ?? new AddressRepository();
         }
         public void Create(Addresses entity)

@@ -79,6 +79,27 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         }
 
         [TestMethod]
+        public void ShouldNotBeAbleToCreateCustomer()
+        {
+            var customerServiceMock = new Mock<IService<Customers>>();
+            var customersController = new CustomersController(customerServiceMock.Object);
+            customersController.Create();
+            var customer = new Customers()
+            {
+                FirstName = "NewFirstName",
+                LastName = "testSurname1",
+                PhoneNumber = "+1234561234567890",
+                Email = "mail@mail.ru",
+                Notes = "note1",
+                TotalPurchasesAmount = 1
+            };
+            var result = customersController.Create(customer) as RedirectToRouteResult;
+            Assert.IsNotNull(result);
+
+            customerServiceMock.Verify(x => x.Create(customer));
+        }
+
+        [TestMethod]
         public void ShouldBeAbleToEditCustomer()
         {
             var customerServiceMock = new Mock<IService<Customers>>();
