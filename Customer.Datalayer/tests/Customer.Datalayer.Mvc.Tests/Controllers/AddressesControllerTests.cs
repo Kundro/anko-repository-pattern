@@ -107,20 +107,11 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             var addressesController = new AddressesController(addressServiceMock.Object);
 
             addressesController.Delete(1);
-            addressesController.DeleteConfirmed(1);
+            var result = addressesController.DeleteConfirmed(1) as RedirectToRouteResult;
 
             addressServiceMock.Verify(x => x.Delete(1));
-        }
-
-        [TestMethod]
-        public void ShouldBeAbleToDeleteWithRedirect()
-        {
-            var addressServiceMock = new Mock<IService<Addresses>>();
-            var addressesController = new AddressesController(addressServiceMock.Object);
-
-            
-            var result = addressesController.DeleteConfirmed(1) as RedirectToRouteResult;
             Assert.IsNotNull(result);
+
         }
 
         [TestMethod]
