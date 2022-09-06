@@ -46,7 +46,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Addresses/Create
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create(Addresses address)
         {
             if (!ModelState.IsValid)
@@ -71,7 +71,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Addresses/Edit/5
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Addresses address)
         {
             if(!ModelState.IsValid)
@@ -94,13 +94,11 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Addresses/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var addresses = _addressService.Get();
-            var customerId = addresses[addresses.Count - 1].CustomerID;
             _addressService.Delete(id);
-            return RedirectToAction("Details", "Customers", new { id = customerId });
+            return RedirectToAction("Index", "Customers");
         }
     }
 }

@@ -107,17 +107,27 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
             var addressesController = new AddressesController(addressServiceMock.Object);
 
             addressesController.Delete(1);
-            var result = addressesController.DeleteConfirmed(5) as RedirectToRouteResult;
+            addressesController.DeleteConfirmed(1);
 
+            addressServiceMock.Verify(x => x.Delete(1));
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToDeleteWithRedirect()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+
+            
+            var result = addressesController.DeleteConfirmed(1) as RedirectToRouteResult;
             Assert.IsNotNull(result);
-            addressServiceMock.Verify(x => x.Delete(5));
         }
 
         [TestMethod]
         public void ShouldBeAbleToShowDetails()
         {
             var addressesController = new AddressesController();
-            var address = (addressesController.Details(3) as ViewResult).Model as Addresses;
+            var address = (addressesController.Details(4) as ViewResult).Model as Addresses;
 
             Assert.AreEqual("line", address.AddressLine);
         }

@@ -66,7 +66,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Customers/Create
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create(Customers customer)
         {
             if (!ModelState.IsValid)
@@ -92,7 +92,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Customers/Edit/5
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Customers customer)
         {
             if (!ModelState.IsValid)
@@ -115,7 +115,7 @@ namespace Customer.Datalayer.Mvc.Controllers
         }
 
         // POST: Customers/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
                 _customerService.Delete(id);
