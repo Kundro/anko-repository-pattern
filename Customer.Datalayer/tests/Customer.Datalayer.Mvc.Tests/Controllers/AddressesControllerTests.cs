@@ -116,8 +116,8 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         {
             var addressServiceMock = new Mock<IService<Addresses>>();
             var addressesController = new AddressesController(addressServiceMock.Object);
-            const int address = 0;
-            var result = addressesController.Edit(0, null) as HttpStatusCodeResult;
+            const int addressId = 0;
+            var result = addressesController.Edit(addressId, null) as HttpStatusCodeResult;
 
             Assert.AreEqual(new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest).StatusCode, result.StatusCode);
         }
