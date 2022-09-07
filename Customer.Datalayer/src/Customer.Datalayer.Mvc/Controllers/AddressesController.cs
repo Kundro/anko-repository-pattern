@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Customer.Datalayer.Business;
@@ -35,6 +36,11 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Addresses/Details/5
         public ActionResult Details(int id)
         {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
             var address = _addressService.Read(id);
             return View(address);
         }
@@ -80,7 +86,11 @@ namespace Customer.Datalayer.Mvc.Controllers
                 return View(address);
             }
             else
-            {   
+            {
+                if (address == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 _addressService.Update(address);
                 return RedirectToAction("Details", "Customers", new { id = address.CustomerID });
             }
@@ -89,6 +99,10 @@ namespace Customer.Datalayer.Mvc.Controllers
         // GET: Addresses/Delete/5
         public ActionResult Delete(int id)
         {
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
             var address = _addressService.Read(id);
             return View(address);
         }
@@ -97,6 +111,10 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             _addressService.Delete(id);
             return RedirectToAction("Index", "Customers");
         }

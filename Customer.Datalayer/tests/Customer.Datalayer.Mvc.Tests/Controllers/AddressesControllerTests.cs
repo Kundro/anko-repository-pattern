@@ -101,7 +101,40 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         }
 
         [TestMethod]
+        public void ShouldNotBeAbleToEditCustomer()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+            const int addressId = 0;
+            var result = addressesController.Edit(addressId) as HttpNotFoundResult;
+
+            Assert.AreEqual(new HttpNotFoundResult().StatusCode, result.StatusCode);
+        }
+
+        [TestMethod]
+        public void ShouldNotBeAbleToEditConfirmedCustomer()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+            const int address = 0;
+            var result = addressesController.Edit(0, null) as HttpStatusCodeResult;
+
+            Assert.AreEqual(new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest).StatusCode, result.StatusCode);
+        }
+
+        [TestMethod]
         public void ShouldBeAbleToDeleteAddress()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            addressServiceMock.Setup(x => x.Read(6)).Returns(new Addresses() { AddressID = 6 });
+            addressServiceMock.Setup(x => x.Delete(6));
+            var addressesController = new AddressesController(addressServiceMock.Object);
+
+            if ((addressesController.Delete(1) as ViewResult)?.Model is Addresses result) Assert.AreEqual(6, result.AddressID);
+        }
+
+        [TestMethod]
+        public void ShouldBeAbleToDeleteConfirmedAddress()
         {
             var addressServiceMock = new Mock<IService<Addresses>>();
             var addressesController = new AddressesController(addressServiceMock.Object);
@@ -115,12 +148,45 @@ namespace Customer.Datalayer.Mvc.Tests.Controllers
         }
 
         [TestMethod]
+        public void ShouldNotBeAbleToDeleteConfirmedCustomer()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+            const int addressId = 0;
+            var result = addressesController.DeleteConfirmed(addressId) as HttpStatusCodeResult;
+
+            Assert.AreEqual(new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest).StatusCode, result.StatusCode);
+        }
+
+        [TestMethod]
+        public void ShouldNotBeAbleToDeleteCustomer()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+            const int addressId = 0;
+            var result = addressesController.Delete(addressId) as HttpNotFoundResult;
+
+            Assert.AreEqual(new HttpNotFoundResult().StatusCode, result.StatusCode);
+        }
+
+        [TestMethod]
         public void ShouldBeAbleToShowDetails()
         {
             var addressesController = new AddressesController();
             var address = (addressesController.Details(4) as ViewResult).Model as Addresses;
 
             Assert.AreEqual("line", address.AddressLine);
+        }
+
+        [TestMethod]
+        public void ShouldNotBeAbleToShowDetails()
+        {
+            var addressServiceMock = new Mock<IService<Addresses>>();
+            var addressesController = new AddressesController(addressServiceMock.Object);
+            const int addressId = 0;
+            var result = addressesController.Details(addressId) as HttpStatusCodeResult;
+
+            Assert.AreEqual(new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest).StatusCode, result.StatusCode);
         }
     }
 }
