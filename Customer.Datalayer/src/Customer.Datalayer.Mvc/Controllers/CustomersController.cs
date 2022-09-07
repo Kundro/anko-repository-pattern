@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Customer.Datalayer.Business;
 using Microsoft.Ajax.Utilities;
 using PagedList;
+using System.Net;
 
 namespace Customer.Datalayer.Mvc.Controllers
 {
@@ -87,13 +88,12 @@ namespace Customer.Datalayer.Mvc.Controllers
             {
                 return HttpNotFound();
 
-            }
-            return View(customer);
+            } else return View(customer);
         }
 
         // POST: Customers/Edit/5
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Customers customer)
+        public ActionResult Edit(Customers customer)
         {
             if (!ModelState.IsValid)
             {
@@ -102,6 +102,10 @@ namespace Customer.Datalayer.Mvc.Controllers
             }
             else
             {
+                if (customer == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 _customerService.Update(customer);
                 return RedirectToAction("Index");
             }
@@ -118,8 +122,12 @@ namespace Customer.Datalayer.Mvc.Controllers
         [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-                _customerService.Delete(id);
-                return RedirectToAction("Index");
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }    
+            _customerService.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
