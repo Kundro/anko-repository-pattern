@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=896a684e_002Ddd24_002D49fd_002Db119_002D57faaab4e686/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EFCustomerRepositoryTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F::.NETFramework,Version=v4.7.2::Customer.Datalayer.IntegrationTests.EFCustomerRepositoryTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fdbf5eed_002Dfbf2_002D4217_002D8a0f_002D0aef44b4f36e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EFCustomerRepositoryTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F::.NETFramework,Version=v4.7.2::Customer.Datalayer.IntegrationTests.EFCustomerRepositoryTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,7 @@
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\bin\Debug\net472\CoverletSourceRootsMapping
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.csproj.AssemblyReference.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.csproj.SuggestedBindingRedirects.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.AssemblyInfoInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.AssemblyInfo.cs
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\obj\Debug\net472\Customer.Datalayer.IntegrationTests.csproj.CoreCompileInputs.cache

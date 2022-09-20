@@ -12,3 +12,5 @@ D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\De
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net472\Customer.Datalayer.csproj.CopyComplete
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net472\Customer.Datalayer.dll
 D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net472\Customer.Datalayer.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net472\EntityFramework.SqlServer.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net472\EntityFramework.dll
