@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J1bMtYKUfEJvymiBUM9zgYPEXPM3WEeyrsNlr5Ai6K1ULeWmqZHEaW6CRTqg8tEeItBNh0lZb/irDBc9yGPSHQ==",
+  "dgSpecHash": "F1hzG+7QL37pk/3mcVbgSJt2u79CuRlYkHFmrA+eqf3ORw85LXhTxHRBLGCuHC3VkNd2REXPVvhEFzYgQ51Brg==",
   "success": true,
   "projectFilePath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\src\\Customer.Datalayer\\Customer.Datalayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",

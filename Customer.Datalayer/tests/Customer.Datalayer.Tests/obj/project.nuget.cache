@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yKPCqP1vOQIZSGyVB+cl9z5uaeGdUMlUtJGv5+iD5nvw5tafCdvNsaVZE00VWJiW5yNtz1Mfk5WXbC6DFoni6Q==",
+  "dgSpecHash": "vsE4N36CDZMh+3iJqvfVtgW0dNou+KQ9yn/7ntQGjgr5PES4872/s4NSJDthMVXanUua0VBZGWk6ki/pFKIaBg==",
   "success": true,
   "projectFilePath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\tests\\Customer.Datalayer.Tests\\Customer.Datalayer.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",

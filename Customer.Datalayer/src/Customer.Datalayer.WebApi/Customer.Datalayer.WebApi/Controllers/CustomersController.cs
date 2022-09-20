@@ -34,7 +34,7 @@ namespace Customer.Datalayer.WebApi.Controllers
         public IActionResult CreateCustomer([FromBody] Customers customer)
         {
             _customerRepository.Create(customer);
-            return Ok("Customer was added");
+            return Ok();
         }
     }
 }

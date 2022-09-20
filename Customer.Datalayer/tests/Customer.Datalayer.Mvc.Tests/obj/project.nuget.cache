@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Kbw/sLDC9G5bySItKONqxyQv+tECfALThMFTmV1umF5t45uvERLiV9hIY0jta7Crf6OMZfPAu1WTZqAc/dkPgw==",
+  "dgSpecHash": "lSNb3OEwbNhqgZc1+Mf/ltNEl7MABuMNi3rau/127/rePxKU8pLsATRSs/tNe61sBhiPUeDVCrqBSlf/Kgcs2A==",
   "success": true,
   "projectFilePath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\tests\\Customer.Datalayer.Mvc.Tests\\Customer.Datalayer.Mvc.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",

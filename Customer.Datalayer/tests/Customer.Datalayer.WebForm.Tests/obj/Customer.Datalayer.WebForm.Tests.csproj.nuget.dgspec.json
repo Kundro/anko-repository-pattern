@@ -59,6 +59,10 @@
         "net472": {
           "targetAlias": "net472",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.7.0, )"

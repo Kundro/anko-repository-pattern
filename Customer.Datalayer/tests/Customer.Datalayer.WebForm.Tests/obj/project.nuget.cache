@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "oYKREFn7xo/bX+BXOmIeGd/0Qy8ESJBvSkbaAZ9I1i4u7PnNilgZE1aekb1bPFn/1Xvf/I5vXnR8JMeulXmCJg==",
+  "dgSpecHash": "z7CQSjoVq4UjMb1601gVkpI+dkQBO3bzJOyyjNo1tNMDJFY8nB5JWqyle3joi6qJk4/ERk5KwbuSpvkKxLkEoQ==",
   "success": true,
   "projectFilePath": "D:\\ANKO\\anko-repository-pattern\\Customer.Datalayer\\tests\\Customer.Datalayer.WebForm.Tests\\Customer.Datalayer.WebForm.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",
