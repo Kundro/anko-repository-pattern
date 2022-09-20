@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Datalayer.Mvc.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Datalayer.WebApi", "src\Customer.Datalayer.WebApi\Customer.Datalayer.WebApi\Customer.Datalayer.WebApi.csproj", "{5D3958BA-EFE6-4A31-8065-4EEE272FF466}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Datalayer.IntegrationTests", "tests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests\Customer.Datalayer.IntegrationTests.csproj", "{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{5D3958BA-EFE6-4A31-8065-4EEE272FF466}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D3958BA-EFE6-4A31-8065-4EEE272FF466}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D3958BA-EFE6-4A31-8065-4EEE272FF466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{AA2E4247-D5A3-451C-8819-4316827EDD97} = {299E300B-47B8-4112-9746-4E9D1409A8B1}
 		{4BA23360-2098-465B-8F0A-30D3989F9EBA} = {0D593B11-360C-412A-9837-BFDB5CF99344}
 		{5D3958BA-EFE6-4A31-8065-4EEE272FF466} = {299E300B-47B8-4112-9746-4E9D1409A8B1}
+		{BDF6BECE-0656-4E9F-B3C4-6989F1E3AE2F} = {0D593B11-360C-412A-9837-BFDB5CF99344}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {140B8C85-1F00-4EDA-B68B-A071E42D9EB8}

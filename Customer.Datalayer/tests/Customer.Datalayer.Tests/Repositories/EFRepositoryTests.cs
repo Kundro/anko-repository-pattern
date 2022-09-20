@@ -18,6 +18,7 @@ namespace Customer.Datalayer.Tests.Repositories
         {
             var efRepository = new EFCustomerRepository();
             Assert.NotNull(efRepository);
+            Assert.IsAssignableFrom<IRepository<Customers>>(efRepository); // check for types similarity
         }
 
         [Fact]
@@ -25,8 +26,7 @@ namespace Customer.Datalayer.Tests.Repositories
         {
             var efRepository = new EFAddressRepository();
             Assert.NotNull(efRepository);
-            Assert.IsAssignableFrom<IRepository<Addresses>>(efRepository);
+            Assert.IsAssignableFrom<IRepository<Addresses>>(efRepository); // check for types similarity
         }
-
     }
 }
