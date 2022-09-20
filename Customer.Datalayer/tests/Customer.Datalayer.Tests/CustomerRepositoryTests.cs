@@ -62,8 +62,8 @@ namespace Customer.Datalayer.Tests
         public void ShouldBeAbleToDeleteCustomer()
         {
             var repository = Fixture.CreateCustomerRepository();
-            repository.Delete(repository.GetID());
-            Fixture.DeleteAll();
+            var id = repository.GetID();
+            repository.Delete(1);
         }
     }
 }
