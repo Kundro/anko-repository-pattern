@@ -1,18 +1,23 @@
-﻿using System;
+﻿using Customer.Datalayer.BusinessEntities;
+using Customer.Datalayer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Customer.Datalayer.BusinessEntities;
-using Customer.Datalayer.Interfaces;
 
 namespace Customer.Datalayer.EFRepositories
 {
     public class EFCustomerRepository : IRepository<Customers>
     {
+        private readonly CustomerDBContext _dbContext;
+
+        public EFCustomerRepository()
+        {
+            _dbContext = new CustomerDBContext();
+        }
         public void Create(Customers entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Customers.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public Customers Read(int entityID)
@@ -37,7 +42,17 @@ namespace Customer.Datalayer.EFRepositories
 
         public void DeleteAll()
         {
-            throw new NotImplementedException();
+            var customers = _dbContext.Customers.ToList();
+
+            // _dbContext.Database.ExecuteSqlCommand("DELETE FROM dbo.Addresses");
+            // _dbContext.Database.ExecuteSqlCommand("DELETE FROM dbo.Customer");
+
+            foreach (var customer in customers)
+            {
+                _dbContext.Customers.Remove(customer);
+            }
+
+            _dbContext.SaveChanges();
         }
 
         public int GetID()

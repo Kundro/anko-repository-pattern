@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Customer.Datalayer.BusinessEntities
 {
+    [Serializable]
     public class Customers
     {
+        [Key]
         public int CustomerID { get; set; }
 
         [StringLength(50, ErrorMessage = "First name should be less than 50.")]

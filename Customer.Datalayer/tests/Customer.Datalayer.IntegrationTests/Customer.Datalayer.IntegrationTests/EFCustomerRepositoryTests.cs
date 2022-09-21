@@ -12,30 +12,31 @@ namespace Customer.Datalayer.IntegrationTests
         [Fact]
         public void ShouldBeAbleToCreateCustomerRepository()
         {
-            var repository = Fixture.CreateCustomerRepository();
+            var repository = Fixture.CreateEFCustomerRepository();
             repository.Should().NotBeNull();
         }
 
         [Fact]
         public void ShouldBeAbleToCreateCustomer()
         {
-            var repository = Fixture.CreateCustomerRepository(); ;
+            var customerRepository = new EFCustomerRepository();
+            //customerRepository.DeleteAll();
             var customers = new Customers()
             {
-                FirstName = "name",
+                FirstName = "hello",
                 LastName = "surname",
                 PhoneNumber = "+11234567891123",
                 Email = "mail@mail.ru",
                 TotalPurchasesAmount = 1,
                 Notes = "note1"
             };
-            repository.Create(customers);
+            customerRepository.Create(customers);
         }
 
         [Fact]
         public void ShouldBeAbleToReadCustomer()
         {
-            var repository = Fixture.CreateCustomerRepository();
+            var repository = Fixture.CreateEFCustomerRepository();
             var customer = Fixture.CreateMockCustomer();
             repository.Update(customer);
             Assert.NotNull(repository.Read(repository.GetID()));
@@ -45,7 +46,7 @@ namespace Customer.Datalayer.IntegrationTests
         [Fact]
         public void ShouldBeAbleToUpdateCustomer()
         {
-            var repository = Fixture.CreateCustomerRepository();
+            var repository = Fixture.CreateEFCustomerRepository();
             var customers = new Customers()
             {
                 FirstName = "newName",
@@ -61,34 +62,30 @@ namespace Customer.Datalayer.IntegrationTests
         [Fact]
         public void ShouldBeAbleToDeleteCustomer()
         {
-            var repository = Fixture.CreateCustomerRepository();
+            var repository = Fixture.CreateEFCustomerRepository();
             repository.Delete(1);
         }
     }
 }
 public class EFCustomersRepositoryFixture
 {
-    public void DeleteAll()
-    {
-        var repository = new EFCustomerRepository();
-        repository.DeleteAll();
-    }
     public Customers CreateMockCustomer()
     {
         var customerRepository = new EFCustomerRepository();
-        var customers = new Customers
+        customerRepository.DeleteAll();
+        var customer = new Customers
         {
-            FirstName = "name",
+            FirstName = "nameCheck",
             LastName = "surname",
             PhoneNumber = "+11234567891123",
             Email = "mail@mail.ru",
             Notes = "note1",
             TotalPurchasesAmount = 1
         };
-        customerRepository.Create(customers);
-        return customers;
+        customerRepository.Create(customer);
+        return customer;
     }
-    public EFCustomerRepository CreateCustomerRepository()
+    public EFCustomerRepository CreateEFCustomerRepository()
     {
         return new EFCustomerRepository();
     }

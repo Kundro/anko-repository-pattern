@@ -14,7 +14,7 @@ namespace Customer.Datalayer.Tests.Repositories
     public class EFRepositoryTests
     {
         [Fact]
-        public void ShouldBeAbleToCreateEFCustomerRepository()
+        public void ShouldCreateEFCustomerRepository()
         {
             var efRepository = new EFCustomerRepository();
             Assert.NotNull(efRepository);
