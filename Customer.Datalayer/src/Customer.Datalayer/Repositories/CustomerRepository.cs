@@ -156,6 +156,7 @@ namespace Customer.Datalayer.Repositories
                 return 0;
             }
         }
+
         public void DeleteAll()
         {
             using (var connection = GetConnection())

@@ -45,7 +45,6 @@ namespace Customer.Datalayer.EFRepositories
         {
             throw new NotImplementedException();
         }
-
         public List<int> GetAllIDs()
         {
             throw new NotImplementedException();
