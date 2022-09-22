@@ -16,6 +16,7 @@ namespace Customer.Datalayer.Tests
             var context = new CustomerDBContext();
             Assert.NotNull(context);
             Assert.NotNull(context.Customers);
+            Assert.NotNull(context.Addresses);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,5 +24,6 @@ namespace Customer.Datalayer.BusinessEntities
         public string Notes { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Total purchases amount is required.")]
         public decimal? TotalPurchasesAmount { get; set; }
+        public virtual ICollection<Addresses> Addresses { get; set; }
     }
 }

@@ -6,6 +6,12 @@ namespace Customer.Datalayer.BusinessEntities
     [Serializable]
     public class Addresses
     {
+        public Addresses(){}
+        public Addresses(int customerId)
+        {
+            CustomerID = customerId;
+        }
+
         [Key]
         public int AddressID { get; set; }
         public int CustomerID { get; set; }
@@ -26,5 +32,6 @@ namespace Customer.Datalayer.BusinessEntities
         public string StateName { get; set; } = string.Empty;
         [Required(AllowEmptyStrings = false, ErrorMessage = "Country is required.")]
         public string Country { get; set; } = string.Empty;
+        public virtual Customers customer { get; set; }
     }
 }

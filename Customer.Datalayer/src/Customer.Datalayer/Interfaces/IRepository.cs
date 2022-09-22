@@ -10,7 +10,6 @@ namespace Customer.Datalayer.Interfaces
         void Delete(int entityID);
         List<TEntity> GetAll();
         void DeleteAll();
-        int GetID();
         List<int> GetAllIDs();
     }
 }

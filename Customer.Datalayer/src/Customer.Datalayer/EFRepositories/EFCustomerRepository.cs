@@ -84,11 +84,6 @@ namespace Customer.Datalayer.EFRepositories
             _dbContext.SaveChanges();
         }
 
-        public int GetID()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<int> GetAllIDs()
         {
             var customers = _dbContext

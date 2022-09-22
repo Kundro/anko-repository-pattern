@@ -13,9 +13,11 @@ namespace Customer.Datalayer.EFRepositories
 
     {
         public CustomerDBContext()
-            : base("Server=.\\SQLEXPRESS;Database=redbull;Trusted_Connection=True;")
+            : base("Server=.\\SQLEXPRESS;Database=redbull3;Trusted_Connection=True;")
         {
         }
+
         public IDbSet<Customers> Customers { get; set; } = null;
+        public IDbSet<Addresses> Addresses { get; set; } = null;
     }
 }

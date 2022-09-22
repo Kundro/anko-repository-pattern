@@ -19,7 +19,7 @@ namespace Customer.Datalayer.IntegrationTests
         public void ShouldBeAbleToCreateCustomer()
         {
             var customerRepository = new EFCustomerRepository();
-            customerRepository.DeleteAll();
+            // customerRepository.DeleteAll();
             var customers = new Customers()
             {
                 FirstName = "hello",
@@ -108,4 +108,3 @@ public class EFCustomersRepositoryFixture
         return new EFCustomerRepository();
     }
 }
-
