@@ -1,3 +1,6 @@
+using Customer.Datalayer.EFRepositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

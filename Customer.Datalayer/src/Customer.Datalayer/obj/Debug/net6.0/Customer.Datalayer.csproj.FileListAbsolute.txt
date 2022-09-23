@@ -1,0 +1,14 @@
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net6.0\Customer.Datalayer.deps.json
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net6.0\Customer.Datalayer.runtimeconfig.json
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net6.0\Customer.Datalayer.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\bin\Debug\net6.0\Customer.Datalayer.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.csproj.AssemblyReference.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.AssemblyInfoInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.AssemblyInfo.cs
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.csproj.CoreCompileInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\refint\Customer.Datalayer.dll
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.pdb
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\Customer.Datalayer.genruntimeconfig.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer\obj\Debug\net6.0\ref\Customer.Datalayer.dll
