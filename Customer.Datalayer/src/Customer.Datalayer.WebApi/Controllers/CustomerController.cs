@@ -55,5 +55,22 @@ namespace Customer.Datalayer.WebApi.Controllers
             if (customer == null) return BadRequest("Customer not found");
             return Ok(customer);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<List<Customers>>> UpdateCustomer(Customers customer)
+        {
+            var newCustomer = customers.Find(c => c.CustomerId == customer.CustomerId);
+            if (newCustomer == null) return BadRequest("Customer not found");
+
+            newCustomer.FirstName = customer.FirstName;
+            newCustomer.LastName = customer.LastName;
+            newCustomer.Email = customer.Email;
+            newCustomer.PhoneNumber = customer.PhoneNumber;
+            newCustomer.Notes = customer.PhoneNumber;
+            newCustomer.TotalPurchasesAmount = customer.TotalPurchasesAmount;
+            newCustomer.Addresses = customer.Addresses;
+
+            return Ok(customers);
+        }
     }
 }
