@@ -95,8 +95,8 @@ namespace Customer.Datalayer.IntegrationTests
         public void ShouldBeAbleToGetAllAddresses()
         {
             var repository = Fixture.EFCreateAddressRepository();
-            var customers = repository.GetAll();
-            Assert.NotEmpty(customers);
+            var addresses = repository.GetAll();
+            Assert.NotEmpty(addresses);
         }
     }
 

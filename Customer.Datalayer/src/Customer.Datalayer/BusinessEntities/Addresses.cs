@@ -32,6 +32,5 @@ namespace Customer.Datalayer.BusinessEntities
         public string StateName { get; set; } = string.Empty;
         [Required(AllowEmptyStrings = false, ErrorMessage = "Country is required.")]
         public string Country { get; set; } = string.Empty;
-        public virtual Customers Customer { get; set; }
     }
 }

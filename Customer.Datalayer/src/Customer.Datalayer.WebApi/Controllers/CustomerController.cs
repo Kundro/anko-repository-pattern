@@ -9,24 +9,51 @@ namespace Customer.Datalayer.WebApi.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
+        private static List<Customers> customers = new List<Customers>
+        {
+            new Customers
+            {
+                CustomerId = 1,
+                FirstName = "TestName",
+                LastName = "TestLastName",
+                Addresses = new List<Addresses>(),
+                Email = "test@mail.ru",
+                Notes = "TestNote",
+                PhoneNumber = "+12341234567890",
+                TotalPurchasesAmount = 1
+            },
+            new Customers
+            {
+                CustomerId = 2,
+                FirstName = "TestName2",
+                LastName = "TestLastName2",
+                Addresses = new List<Addresses>(),
+                Email = "test2@mail.ru",
+                Notes = "TestNote2",
+                PhoneNumber = "+12341234567890",
+                TotalPurchasesAmount = 2
+            }
+        };
+
         [HttpGet]
         public async Task<ActionResult<List<Customers>>> Get()
         {
-            var customers = new List<Customers>
-            {
-                new Customers
-                {
-                    CustomerId = 1,
-                    FirstName = "TestName",
-                    LastName = "TestLastName",
-                    Addresses = new List<Addresses>(),
-                    Email = "test@mail.ru",
-                    Notes = "TestNote",
-                    PhoneNumber = "+12341234567890",
-                    TotalPurchasesAmount = 1
-                }
-            };
             return Ok(customers);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<List<Customers>>> AddCustomer(Customers customer)
+        {
+            customers.Add(customer);
+            return Ok(customers);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Customers>> Get(int id)
+        {
+            var customer = customers.Find(c => c.CustomerId == id);
+            if (customer == null) return BadRequest("Customer not found");
+            return Ok(customer);
         }
     }
 }
