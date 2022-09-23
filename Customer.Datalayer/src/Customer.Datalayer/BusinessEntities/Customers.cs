@@ -10,7 +10,7 @@ namespace Customer.Datalayer.BusinessEntities
     public class Customers
     {
         [Key]
-        public int CustomerID { get; set; }
+        public int CustomerId { get; set; }
 
         [StringLength(50, ErrorMessage = "First name should be less than 50.")]
         public string FirstName { get; set; } = "";

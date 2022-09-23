@@ -1,0 +1,6 @@
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.csproj.AssemblyReference.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.AssemblyInfoInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.AssemblyInfo.cs
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.csproj.CoreCompileInputs.cache
+D:\ANKO\anko-repository-pattern\Customer.Datalayer\src\Customer.Datalayer.WebApi\obj\Debug\net6.0\Customer.Datalayer.WebApi.MvcApplicationPartsAssemblyInfo.cache

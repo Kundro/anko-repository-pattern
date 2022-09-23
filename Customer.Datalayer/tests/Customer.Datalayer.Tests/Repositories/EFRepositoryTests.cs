@@ -1,5 +1,4 @@
-﻿using Customer.Datalayer.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +15,7 @@ namespace Customer.Datalayer.Tests.Repositories
         [Fact]
         public void ShouldCreateEFCustomerRepository()
         {
-            var efRepository = new EFCustomerRepository();
+            var efRepository = new EfCustomerRepository();
             Assert.NotNull(efRepository);
             Assert.IsAssignableFrom<IRepository<Customers>>(efRepository); // check for types similarity
         }
@@ -24,7 +23,7 @@ namespace Customer.Datalayer.Tests.Repositories
         [Fact]
         public void ShouldBeAbleToCreateEFAddressRepository()
         {
-            var efRepository = new EFAddressRepository();
+            var efRepository = new EfAddressRepository();
             Assert.NotNull(efRepository);
             Assert.IsAssignableFrom<IRepository<Addresses>>(efRepository); // check for types similarity
         }

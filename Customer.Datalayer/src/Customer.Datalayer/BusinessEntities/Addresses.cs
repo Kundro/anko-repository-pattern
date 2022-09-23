@@ -9,12 +9,12 @@ namespace Customer.Datalayer.BusinessEntities
         public Addresses(){}
         public Addresses(int customerId)
         {
-            CustomerID = customerId;
+            CustomerId = customerId;
         }
 
         [Key]
-        public int AddressID { get; set; }
-        public int CustomerID { get; set; }
+        public int AddressId { get; set; }
+        public int CustomerId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Address line is required."), StringLength(100, ErrorMessage = "Address line length should be less than 100.")]
         public string AddressLine { get; set; } = string.Empty;
         [StringLength(100, ErrorMessage = "Address line length should be less than 100.")]
@@ -32,6 +32,6 @@ namespace Customer.Datalayer.BusinessEntities
         public string StateName { get; set; } = string.Empty;
         [Required(AllowEmptyStrings = false, ErrorMessage = "Country is required.")]
         public string Country { get; set; } = string.Empty;
-        public virtual Customers customer { get; set; }
+        public virtual Customers Customer { get; set; }
     }
 }

@@ -11,20 +11,20 @@ namespace Customer.Datalayer.IntegrationTests
 {
     public class EFAddressRepositoryTests
     {
-        public EFAddressRepositoryFixture Fixture => new EFAddressRepositoryFixture();
+        public EFAddressRepositoryFixture Fixture => new();
 
         [Fact]
         public void ShouldBeAbleToCreateAddressRepository()
         {
-            var repository = new EFAddressRepository();
+            var repository = new EfAddressRepository();
             repository.Should().NotBeNull();
         }
 
         [Fact]
         public void ShouldBeAbleToCreateAddress()
         {
-            var repository = new EFAddressRepository();
-            const int customerId = 38;
+            var repository = new EfAddressRepository();
+            const int customerId = 6;
             var address = new Addresses(customerId)
             {
                 AddressLine = "line1",
@@ -43,11 +43,11 @@ namespace Customer.Datalayer.IntegrationTests
         {
             var repository = Fixture.EFCreateAddressRepository();
             var address = Fixture.CreateMockAddress();
-            var addressId = address.AddressID;
+            var addressId = address.AddressId;
 
             var newAddress = repository.Read(addressId);
             Assert.NotNull(newAddress);
-            Assert.Equal(addressId, newAddress.AddressID);
+            Assert.Equal(addressId, newAddress.AddressId);
             Assert.Equal("line1", repository.Read(addressId).AddressLine);
         }
 
@@ -59,7 +59,7 @@ namespace Customer.Datalayer.IntegrationTests
             addresses.AddressLine = "newLine1";
             addresses.AddressLine2 = "newLine2";
 
-            var addressId = addresses.AddressID;
+            var addressId = addresses.AddressId;
             repository.Update(addresses);
 
             Assert.Equal("newLine1", repository.Read(addressId).AddressLine);
@@ -71,7 +71,7 @@ namespace Customer.Datalayer.IntegrationTests
         {
             var repository = Fixture.EFCreateAddressRepository();
             var address = Fixture.CreateMockAddress();
-            repository.Delete(address.AddressID);
+            repository.Delete(address.AddressId);
         }
 
         [Fact]
@@ -80,14 +80,13 @@ namespace Customer.Datalayer.IntegrationTests
             var repository = Fixture.EFCreateAddressRepository();
             var address = Fixture.CreateMockAddress();
             var addressAllIDs = repository.GetAllIDs();
-            Assert.Contains(address.AddressID, addressAllIDs);
+            Assert.Contains(address.AddressId, addressAllIDs);
         }
 
         [Fact]
         public void ShouldBeAbleToDeleteAllAddresses()
         {
             var repository = Fixture.EFCreateAddressRepository();
-            var address = Fixture.CreateMockAddress();
             repository.DeleteAll();
 
             Assert.Empty(repository.GetAllIDs());
@@ -96,7 +95,6 @@ namespace Customer.Datalayer.IntegrationTests
         public void ShouldBeAbleToGetAllAddresses()
         {
             var repository = Fixture.EFCreateAddressRepository();
-            var address = Fixture.CreateMockAddress();
             var customers = repository.GetAll();
             Assert.NotEmpty(customers);
         }
@@ -108,7 +106,7 @@ namespace Customer.Datalayer.IntegrationTests
         {
 
             var addressRepository = this.EFCreateAddressRepository();
-            const int id = 38;
+            const int id = 6;
             var addresses = new Addresses(id)
             {
                 AddressLine2 = "line2",
@@ -123,9 +121,9 @@ namespace Customer.Datalayer.IntegrationTests
             return addresses;
         }
 
-        public EFAddressRepository EFCreateAddressRepository()
+        public EfAddressRepository EFCreateAddressRepository()
         {
-            return new EFAddressRepository();
+            return new EfAddressRepository();
         }
     }
 }

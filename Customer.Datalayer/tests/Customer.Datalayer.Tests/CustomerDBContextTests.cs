@@ -13,7 +13,7 @@ namespace Customer.Datalayer.Tests
         [Fact]
         public void ShouldBeAbleToCreateCustomerDBContext()
         {
-            var context = new CustomerDBContext();
+            var context = new CustomerDbContext();
             Assert.NotNull(context);
             Assert.NotNull(context.Customers);
             Assert.NotNull(context.Addresses);

@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace Customer.Datalayer.EFRepositories
 {
-    public class EFCustomerRepository : IRepository<Customers>
+    public class EfCustomerRepository : IRepository<Customers>
     {
-        private readonly CustomerDBContext _dbContext;
+        private readonly CustomerDbContext _dbContext;
 
-        public EFCustomerRepository()
+        public EfCustomerRepository()
         {
-            _dbContext = new CustomerDBContext();
+            _dbContext = new CustomerDbContext();
         }
         public void Create(Customers entity)
         {
@@ -23,22 +23,22 @@ namespace Customer.Datalayer.EFRepositories
             _dbContext.SaveChanges();
         }
 
-        public Customers Read(int entityID)
+        public Customers Read(int entityId)
         {
             return _dbContext
                 .Customers
-                .FirstOrDefault(x => x.CustomerID == entityID);
+                .FirstOrDefault(x => x.CustomerId == entityId);
         }
 
         public void Update(Customers entity)
         {
             var oldCustomer = _dbContext
                 .Customers
-                .FirstOrDefault(x => x.CustomerID == entity.CustomerID);
+                .FirstOrDefault(x => x.CustomerId == entity.CustomerId);
 
             if (oldCustomer != null)
             {
-                oldCustomer.CustomerID = entity.CustomerID;
+                oldCustomer.CustomerId = entity.CustomerId;
                 oldCustomer.FirstName = entity.FirstName;
                 oldCustomer.LastName = entity.LastName;
                 oldCustomer.Email = entity.Email;
@@ -50,10 +50,10 @@ namespace Customer.Datalayer.EFRepositories
             _dbContext.SaveChanges();
         }
 
-        public void Delete(int entityID)
+        public void Delete(int entityId)
         {
-            Customers customer = Read(entityID);
-            if (customer == null) throw new Exception("Not found customer with id = " + entityID);
+            Customers customer = Read(entityId);
+            if (customer == null) throw new Exception("Not found customer with id = " + entityId);
             else _dbContext.Customers.Remove(customer);
             _dbContext.SaveChanges();
         }
@@ -93,7 +93,7 @@ namespace Customer.Datalayer.EFRepositories
 
             foreach (var customer in customers)
             {
-                ids.Add(customer.CustomerID);
+                ids.Add(customer.CustomerId);
             }
 
             return ids;

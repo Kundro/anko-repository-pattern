@@ -8,14 +8,14 @@ using Customer.Datalayer.Interfaces;
 
 namespace Customer.Datalayer.EFRepositories
 {
-    public class EFAddressRepository : IRepository<Addresses>
+    public class EfAddressRepository : IRepository<Addresses>
 
     {
-        private readonly CustomerDBContext _dbContext;
+        private readonly CustomerDbContext _dbContext;
 
-        public EFAddressRepository()
+        public EfAddressRepository()
         {
-            _dbContext = new CustomerDBContext();
+            _dbContext = new CustomerDbContext();
         }
         public void Create(Addresses entity)
         {
@@ -24,20 +24,20 @@ namespace Customer.Datalayer.EFRepositories
             _dbContext.SaveChanges();
         }
 
-        public Addresses Read(int entityID)
+        public Addresses Read(int entityId)
         {
-            return _dbContext.Addresses.FirstOrDefault(x => x.AddressID == entityID);
+            return _dbContext.Addresses.FirstOrDefault(x => x.AddressId == entityId);
         }
 
         public void Update(Addresses entity)
         {
             var oldAddress = _dbContext
                 .Addresses
-                .FirstOrDefault(x => x.AddressID == entity.AddressID);
+                .FirstOrDefault(x => x.AddressId == entity.AddressId);
 
             if (oldAddress != null)
             {
-                oldAddress.CustomerID = entity.CustomerID;
+                oldAddress.CustomerId = entity.CustomerId;
                 oldAddress.AddressLine = entity.AddressLine;
                 oldAddress.AddressLine2 = entity.AddressLine2;
                 oldAddress.AddressType = entity.AddressType;
@@ -50,9 +50,9 @@ namespace Customer.Datalayer.EFRepositories
             _dbContext.SaveChanges();
         }
 
-        public void Delete(int entityID)
+        public void Delete(int entityId)
         {
-            var address = _dbContext.Addresses.FirstOrDefault(x => x.AddressID == entityID);
+            var address = _dbContext.Addresses.FirstOrDefault(x => x.AddressId == entityId);
             _dbContext.Addresses.Remove(address);
 
             _dbContext.SaveChanges();
@@ -89,11 +89,11 @@ namespace Customer.Datalayer.EFRepositories
             var addresses = _dbContext
                 .Addresses
                 .ToList();
-            List<int> ids = new List<int>();
+            List<int> ids = new();
 
             foreach (var address in addresses)
             {
-                ids.Add(address.AddressID);
+                ids.Add(address.AddressId);
             }
 
             return ids;

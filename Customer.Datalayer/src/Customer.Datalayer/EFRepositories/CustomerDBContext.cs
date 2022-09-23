@@ -9,11 +9,11 @@ using Customer.Datalayer.BusinessEntities;
 
 namespace Customer.Datalayer.EFRepositories
 {
-    public class CustomerDBContext : DbContext
+    public class CustomerDbContext : DbContext
 
     {
-        public CustomerDBContext()
-            : base("Server=.\\SQLEXPRESS;Database=redbull3;Trusted_Connection=True;")
+        public CustomerDbContext()
+            : base("Server=.\\SQLEXPRESS;Database=redbull2;Trusted_Connection=True;")
         {
         }
 
