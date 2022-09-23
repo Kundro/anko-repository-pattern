@@ -72,5 +72,24 @@ namespace Customer.Datalayer.WebApi.Controllers
 
             return Ok(customers);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<Customers>>> Delete(int id)
+        {
+            var customer = customers.Find(c => c.CustomerId == id);
+            if (customer == null) return BadRequest("Customer not found");
+            customers.Remove(customer);
+            return Ok(customers);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<List<Customers>>> DeleteAll()
+        {
+            foreach (var customer in customers)
+            {
+                customers.Remove(customer);
+            }
+            return Ok(customers);
+        }
     }
 }
