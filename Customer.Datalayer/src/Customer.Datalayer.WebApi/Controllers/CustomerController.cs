@@ -9,7 +9,7 @@ namespace Customer.Datalayer.WebApi.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private static List<Customers> customers = new List<Customers>
+        private static readonly List<Customers> customers = new()
         {
             new Customers
             {
@@ -79,16 +79,6 @@ namespace Customer.Datalayer.WebApi.Controllers
             var customer = customers.Find(c => c.CustomerId == id);
             if (customer == null) return BadRequest("Customer not found");
             customers.Remove(customer);
-            return Ok(customers);
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult<List<Customers>>> DeleteAll()
-        {
-            foreach (var customer in customers)
-            {
-                customers.Remove(customer);
-            }
             return Ok(customers);
         }
     }

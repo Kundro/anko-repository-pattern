@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Customer.Datalayer.BusinessEntities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Customer.Datalayer.EFRepositories
 {
@@ -13,11 +13,15 @@ namespace Customer.Datalayer.EFRepositories
 
     {
         public CustomerDbContext()
-            : base("Server=.\\SQLEXPRESS;Database=redbull2;Trusted_Connection=True;")
         {
+            Database.EnsureCreated();
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=KUNDRO\SQLEXPRESS;Database=CustomersDb;Trusted_Connection=True;");
         }
 
-        public IDbSet<Customers> Customers { get; set; } = null;
-        public IDbSet<Addresses> Addresses { get; set; } = null;
+        public DbSet<Customers> Customers { get; set; } = null;
+        public DbSet<Addresses> Addresses { get; set; } = null;
     }
 }

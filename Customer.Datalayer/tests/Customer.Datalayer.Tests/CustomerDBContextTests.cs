@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Customer.Datalayer.EFRepositories;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace Customer.Datalayer.Tests
