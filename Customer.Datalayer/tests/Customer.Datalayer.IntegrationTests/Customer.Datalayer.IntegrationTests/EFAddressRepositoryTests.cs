@@ -24,7 +24,7 @@ namespace Customer.Datalayer.IntegrationTests
         public void ShouldBeAbleToCreateAddress()
         {
             var repository = new EfAddressRepository();
-            const int customerId = 6;
+            const int customerId = 1;
             var address = new Addresses(customerId)
             {
                 AddressLine = "line1",
@@ -84,6 +84,14 @@ namespace Customer.Datalayer.IntegrationTests
         }
 
         [Fact]
+        public void ShouldBeAbleToGetAllAddresses()
+        {
+            var repository = Fixture.EFCreateAddressRepository();
+            var addresses = repository.GetAll();
+            Assert.NotEmpty(addresses);
+        }
+
+        [Fact]
         public void ShouldBeAbleToDeleteAllAddresses()
         {
             var repository = Fixture.EFCreateAddressRepository();
@@ -91,13 +99,7 @@ namespace Customer.Datalayer.IntegrationTests
 
             Assert.Empty(repository.GetAllIDs());
         }
-        [Fact]
-        public void ShouldBeAbleToGetAllAddresses()
-        {
-            var repository = Fixture.EFCreateAddressRepository();
-            var addresses = repository.GetAll();
-            Assert.NotEmpty(addresses);
-        }
+        
     }
 
     public class EFAddressRepositoryFixture
@@ -106,7 +108,7 @@ namespace Customer.Datalayer.IntegrationTests
         {
 
             var addressRepository = this.EFCreateAddressRepository();
-            const int id = 6;
+            const int id = 1;
             var addresses = new Addresses(id)
             {
                 AddressLine2 = "line2",

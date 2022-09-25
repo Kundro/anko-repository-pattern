@@ -82,7 +82,6 @@ namespace Customer.Datalayer.EFRepositories
                     .ToList();
 
                 // _dbContext.Database.ExecuteSqlCommand("DELETE FROM dbo.Addresses");
-                // _dbContext.Database.ExecuteSqlCommand("DELETE FROM dbo.Customer");
 
                 foreach (var address in addresses)
                 {

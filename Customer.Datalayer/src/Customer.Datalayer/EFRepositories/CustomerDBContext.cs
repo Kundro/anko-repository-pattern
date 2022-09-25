@@ -14,11 +14,11 @@ namespace Customer.Datalayer.EFRepositories
     {
         public CustomerDbContext()
         {
-            Database.EnsureCreated();
+            // Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=KUNDRO\SQLEXPRESS;Database=CustomersDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=KUNDRO\SQLEXPRESS;Database=redbull2;Trusted_Connection=True;");
         }
 
         public DbSet<Customers> Customers { get; set; } = null;

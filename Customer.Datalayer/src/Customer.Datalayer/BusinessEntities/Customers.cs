@@ -23,6 +23,7 @@ namespace Customer.Datalayer.BusinessEntities
         [Required(AllowEmptyStrings = false, ErrorMessage = "At least one note is required.")]
         public string Notes { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Total purchases amount is required.")]
+        [Column(TypeName = "decimal(18,4)")]
         public decimal? TotalPurchasesAmount { get; set; }
         public virtual ICollection<Addresses> Addresses { get; set; }
     }

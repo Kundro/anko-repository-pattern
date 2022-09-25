@@ -1,19 +1,21 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace Customer.Datalayer.BusinessEntities
 {
     [Serializable]
     public class Addresses
     {
-        public Addresses(){}
         public Addresses(int customerId)
         {
             CustomerId = customerId;
         }
-
         [Key]
         public int AddressId { get; set; }
+        [ForeignKey("CustomerId")]
+        public Customers Customer { get; set; }
         public int CustomerId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Address line is required."), StringLength(100, ErrorMessage = "Address line length should be less than 100.")]
         public string AddressLine { get; set; } = string.Empty;
