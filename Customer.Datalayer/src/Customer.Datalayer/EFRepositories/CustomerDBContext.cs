@@ -16,6 +16,10 @@ namespace Customer.Datalayer.EFRepositories
         {
             // Database.EnsureCreated();
         }
+        public CustomerDbContext(DbContextOptions<CustomerDbContext> options):base(options)
+        {
+            // Database.EnsureCreated();
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=KUNDRO\SQLEXPRESS;Database=redbull2;Trusted_Connection=True;");
