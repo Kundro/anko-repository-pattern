@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 namespace Customer.Datalayer.BusinessEntities
@@ -15,6 +16,7 @@ namespace Customer.Datalayer.BusinessEntities
         [Key]
         public int AddressId { get; set; }
         [ForeignKey("CustomerId")]
+        [JsonIgnore]
         public Customers Customer { get; set; }
         public int CustomerId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Address line is required."), StringLength(100, ErrorMessage = "Address line length should be less than 100.")]

@@ -1,5 +1,4 @@
 ﻿using Customer.Datalayer.BusinessEntities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Customer.Datalayer.WebApi.Controllers
@@ -16,32 +15,41 @@ namespace Customer.Datalayer.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Customers>>> Get()
+        public async Task<ActionResult<List<Customers>>> Get() // READ ALL
         {
             return Ok(await dbContext.Customers.ToListAsync());
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Customers>>> AddCustomer(Customers customer)
+        public async Task<ActionResult<List<Customers>>> AddCustomer(Customers customer) // CREATE
         {
+            if (customer == null) return BadRequest("Customer not found.");
+
             dbContext.Customers.Add(customer);
             await dbContext.SaveChangesAsync();
+
             return Ok(await dbContext.Customers.ToListAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customers>> Get(int id)
+        public async Task<ActionResult<Customers>> Get(int id) // READ
         {
+            if (id == 0) return BadRequest("This ID will not be found.");
+
             var customer = await dbContext.Customers.FindAsync(id);
-            if (customer == null) return BadRequest("Customer not found");
+            if (customer == null) return BadRequest("Customer not found.");
+
             return Ok(customer);
+
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Customers>>> UpdateCustomer(Customers customer)
+        public async Task<ActionResult<List<Customers>>> UpdateCustomer(Customers customer) // UPDATE
         {
+            if (customer == null) return BadRequest("Customer not found.");
+
             var dbCustomer = await dbContext.Customers.FindAsync(customer.CustomerId);
-            if (dbCustomer == null) return BadRequest("Customer not found");
+            if (dbCustomer == null) return BadRequest("Customer not found.");
 
             dbCustomer.FirstName = customer.FirstName;
             dbCustomer.LastName = customer.LastName;
@@ -57,8 +65,10 @@ namespace Customer.Datalayer.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Customers>>> Delete(int id)
+        public async Task<ActionResult<List<Customers>>> Delete(int id) // DELETE
         {
+            if (id == 0) return BadRequest("This ID will not be found.");
+
             var customer = await dbContext.Customers.FindAsync(id);
             if (customer == null) return BadRequest("Customer not found");
             dbContext.Customers.Remove(customer);
