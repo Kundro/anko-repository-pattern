@@ -21,14 +21,14 @@ namespace Customer.Datalayer.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Customers>>> AddCustomer(Customers customer) // CREATE
+        public IActionResult AddCustomer(Customers customer) // CREATE
         {
             if (customer == null) return BadRequest("Customer not found.");
 
             dbContext.Customers.Add(customer);
-            await dbContext.SaveChangesAsync();
+            dbContext.SaveChanges();
 
-            return Ok(await dbContext.Customers.ToListAsync());
+            return Ok(dbContext.Customers.ToList());
         }
 
         [HttpGet("{id}")]

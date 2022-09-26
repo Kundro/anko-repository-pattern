@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Customer.Datalayer.BusinessEntities;
+﻿using Customer.Datalayer.BusinessEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Customer.Datalayer.EFRepositories
@@ -16,7 +10,7 @@ namespace Customer.Datalayer.EFRepositories
         {
             // Database.EnsureCreated();
         }
-        public CustomerDbContext(DbContextOptions<CustomerDbContext> options):base(options)
+        public CustomerDbContext(DbContextOptions<CustomerDbContext> options) : base(options)
         {
             // Database.EnsureCreated();
         }
